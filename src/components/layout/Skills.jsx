@@ -11,7 +11,7 @@ const skills = [
   { name: "HTML", icon: <FaHtml5 />, category: "Programming Languages" },
   { name: "CSS", icon: <FaCss3Alt />, category: "Programming Languages" },
   { name: "SQL", icon: <FaDatabase />, category: "Programming Languages" },
-  { name: "C#", icon: <TbBrandCSharp />, category: "Programming Languages" },
+  { name: "Unity C#", icon: <TbBrandCSharp />, category: "Programming Languages" },
   { name: "Go", icon: <FaGolang />, category: "Programming Languages" },
 
   { name: "React", icon: <FaReact />, category: "Frameworks" },
