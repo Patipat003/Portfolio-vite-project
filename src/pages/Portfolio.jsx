@@ -28,7 +28,7 @@ const Portfolio = () => {
             <div className="mockup-code bg-base-100 text-primary-content w-full">
               <pre data-prefix="$" className="text-success ">
                 <code>
-                  👋 Hello! My name is Nontachai Prosri. <span className="text-primary">I am a passionate Software
+                  👋 Hello! My name is Patipat Singhasri. <span className="text-primary">I am a passionate Software
                      Developer </span>
                 </code>
               </pre>
