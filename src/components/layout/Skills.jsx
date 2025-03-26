@@ -27,16 +27,16 @@ const skills = [
 const Skills = () => {
   return (
     <motion.div 
-      className="flex w-full flex-col items-center"
+      className="flex w-full flex-col items-center text-neutral-content text-lg"
       initial={{ opacity: 0, y: 50 }}  // ✅ เฟดอินและขยับขึ้น
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-4xl font-bold my-8">Skills</h1>
+      <h1 className="text-2xl font-bold my-8 text-success">Skills</h1>
 
-      <SkillSection title="Programming Languages" skills={skills} category="Programming Languages" />
-      <SkillSection title="Frameworks" skills={skills} category="Frameworks" />
-      <SkillSection title="Tools" skills={skills} category="Tools" />
+      <SkillSection title="- Programming Languages -" skills={skills} category="Programming Languages" />
+      <SkillSection title="- Frameworks -" skills={skills} category="Frameworks" />
+      <SkillSection title="- Tools -" skills={skills} category="Tools" />
     </motion.div>
   );
 };
@@ -50,22 +50,24 @@ const SkillSection = ({ title, skills, category }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
-    <h2 className="text-2xl font-semibold mb-8 text-center">{title}</h2>
+    <h2 className="text-xl font-semibold mb-8 text-center">{title}</h2>
     <div className="grid grid-cols-4 gap-6">
       {skills
         .filter((skill) => skill.category === category)
         .map((skill, index) => (
           <motion.div
             key={index}
-            className="bg-indigo-400 w-full h-42 flex flex-col justify-center items-center rounded-lg shadow-lg text-white"
+            className="w-full h-42 flex flex-col justify-center items-center rounded-lg shadow-lg text-white mb-8"
             whileHover={{ scale: 1.1, backgroundColor: "#4F46E5" }} // ✅ Hover effect
             transition={{ type: "spring", stiffness: 200 }}
           >
             <div className="text-6xl mb-2">{skill.icon}</div>
             <p className="text-lg">{skill.name}</p>
           </motion.div>
+          
         ))}
     </div>
+    <div className="divider lg:divider-vertical"></div>
   </motion.div>
 );
 
