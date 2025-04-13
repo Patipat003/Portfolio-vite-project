@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Header from "../components/layout/Header";
 import Skills from "../components/layout/Skills";
 
@@ -7,8 +8,16 @@ const Portfolio = () => {
     <div data-theme="synthwave" className="w-full max-w-screen-lg mx-auto px-4 mx-8 bg-base-200 font-sans">
       <Header />
 
+      <motion.div
+        className="flex w-full flex-col lg:flex-row gap-4 p-4"
+        initial={{ opacity: 0, y: 50 }}  // ✅ เฟดอินและขยับขึ้น
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        
+
       {/* Information */}
-      <div className="flex w-full flex-col lg:flex-row gap-4 p-4">
+      {/* <motion.div className="flex w-full flex-col lg:flex-row gap-4 p-4"> */}
         
         <div className="card grow max-w-xs mx-auto lg:max-w-md place-items-center">
           <div className="avatar">
@@ -66,7 +75,7 @@ const Portfolio = () => {
 
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="mt-20">
         <div className="divider lg:divider-vertical"></div>
         

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";  // ✅ เพิ่ม Framer Motion
-import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaUnity, FaReact } from "react-icons/fa";
+import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaUnity, FaReact, FaGithub } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
 import { AiOutlineOpenAI } from "react-icons/ai";
@@ -12,14 +12,18 @@ const skills = [
   { name: "CSS", icon: <FaCss3Alt />, category: "Programming Languages" },
   { name: "SQL", icon: <FaDatabase />, category: "Programming Languages" },
   { name: "Unity C#", icon: <TbBrandCSharp />, category: "Programming Languages" },
-  { name: "Go", icon: <FaGolang />, category: "Programming Languages" },
+  { name: "Golang", icon: <FaGolang />, category: "Programming Languages" },
 
   { name: "React", icon: <FaReact />, category: "Frameworks" },
-  { name: "Fiber", icon: <FaReact />, category: "Frameworks" },
+  { name: "Fiber", icon: <FaGolang />, category: "Frameworks" },
+  { name: "Gorm", icon: <FaGolang />, category: "Frameworks" },
   { name: "Tailwind CSS", icon: <FaReact />, category: "Frameworks" },
   { name: "DaisyUI", icon: <FaReact />, category: "Frameworks" },
 
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
+  { name: "PostgreSQL", icon: <FaReact />, category: "Tools"},
+  { name: "Postman", icon: <FaReact />, category: "Tools"},
+  { name: "Github", icon: <FaGithub />, category: "Tools"},
   { name: "Unity", icon: <FaUnity />, category: "Tools" },
   { name: "ChatGPT", icon: <AiOutlineOpenAI />, category: "Tools" },
 ];
