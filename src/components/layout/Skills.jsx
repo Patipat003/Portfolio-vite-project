@@ -21,8 +21,7 @@ const skills = [
 
   // Frameworks & Libraries
   { name: "React", icon: <TbBrandReact />, category: "Frameworks" },
-  { name: "Go Fiber", icon: <FaGolang />, category: "Frameworks" },
-  { name: "Go Gorm", icon: <FaGolang />, category: "Frameworks" },
+  { name: "GoFiber, Gorm", icon: <FaGolang />, category: "Frameworks" },
   { name: "Tailwind CSS", icon: <TbBrandTailwind />, category: "Frameworks" },
   { name: "DaisyUI", icon: <SiDaisyui />, category: "Frameworks" },
 

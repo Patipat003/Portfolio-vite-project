@@ -7,7 +7,7 @@ import Projects from "../components/layout/Projects";
 
 const Portfolio = () => {
   return (
-    <section id="home" data-theme="synthwave" className="bg-base-200 text-neutral-content font-sans ">
+    <div id="home" data-theme="synthwave" className="bg-base-200 text-neutral-content font-sans ">
       <Header />
       <div id="home" className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content">
   
@@ -20,7 +20,7 @@ const Portfolio = () => {
         >
           {/* Avatar */}
           <div className="md:col-span-2 flex justify-center m-6">
-            <div className="lg:w-72 w-36 mask mask-circle shadow-lg">
+            <div className="lg:w-full w-36 mask shadow-lg">
               <img
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                 alt="Profile"
@@ -94,7 +94,11 @@ const Portfolio = () => {
           <Projects />
         </section>
       </div>
-    </section>  
+      <footer className="text-center text-xs text-gray-500 my-6">
+        © {new Date().getFullYear()} Patipat Singhasri. All rights reserved.
+      </footer>
+    </div>  
+    
   );
 };
 

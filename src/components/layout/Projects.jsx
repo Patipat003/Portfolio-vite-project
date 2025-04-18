@@ -50,16 +50,14 @@ const PosProjects = () => {
       <h1 className="text-3xl font-bold text-success">Simple Retail POS System</h1>
       <p className="text-lg font-semibold">Internship Project / Fullstack Web App</p>
       <p className="text-base text-neutral-content/80 leading-relaxed">
-      A web-based Point-of-Sale (POS) system designed to streamline product sales, 
-      inventory management, and operations across multiple branches.
-      The platform features role-based authentication for Cashier, Manager, 
-      and Auditor roles, ensuring secure and structured access control. 
-      It includes real-time sales and inventory tracking with automated stock updates 
-      and low stock alerts to maintain optimal inventory levels. A comprehensive sales dashboard, 
-      built with ApexCharts, visualizes key metrics such as revenue, top-selling products, and branch performance. 
-      The system also supports inter-branch product transfers and warehouse restock requests. Itemized, 
-      printable sales receipts are generated for every transaction. The backend API and PostgreSQL 
-      database are deployed on a Raspberry Pi 5, providing a compact and efficient environment for local testing and development.
+      A web-based POS system that streamlines sales, inventory management, 
+      and operations across branches. It features role-based authentication 
+      (Cashier, Manager, Auditor), real-time sales and inventory tracking, 
+      automated stock updates, and low stock alerts. The sales dashboard, 
+      built with ApexCharts, visualizes revenue, top products, and branch performance. 
+      It supports inter-branch transfers and restock requests. Itemized, 
+      printable receipts are generated for each transaction. 
+      The backend API and PostgreSQL database are deployed on a Raspberry Pi 5 for efficient local testing and development.
       </p>
       <ul className="list-disc list-inside text-sm text-success">
         <li>💻 React, Tailwind, Daisyui</li>
@@ -70,7 +68,7 @@ const PosProjects = () => {
       {/* Github Button */}
       <div className="mt-4">
         <a href="https://github.com/patipat003/PosProject" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
-          <FaGithub /> GitHub
+          <FaGithub /> GitHub (Souce Code)
         </a>
       </div>  
     </motion.div>
