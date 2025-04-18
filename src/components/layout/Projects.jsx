@@ -1,8 +1,21 @@
 import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
 const PosProjects = () => {
+  const totalSlides = 20;
+  const images = Array.from({ length: totalSlides }, (_, i) => ({
+    id: `pos${i + 1}`,
+    src: `/projects/pos-${i + 1}.png`,
+  }));
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNav = (toIndex) => {
+    setCurrentIndex((toIndex + totalSlides) % totalSlides);
+  };
+
   return (
     <motion.div
       className="md:col-span-7 backdrop-blur-md bg-base-100/60 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
@@ -10,8 +23,32 @@ const PosProjects = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-3xl font-bold text-success">Simple Retail POS System – Fullstack Web App</h1>
-      <p className="text-lg font-semibold">Internship Project</p>
+
+      <div className="carousel w-full rounded-lg">
+        {images.map((img, index) => {
+          const prev = (index - 1 + totalSlides) % totalSlides;
+          const next = (index + 1) % totalSlides;
+
+          return (
+            <div key={img.id} id={img.id} className="carousel-item relative w-full">
+              <img src={img.src} className="w-full object-contain" alt={`Slide ${index + 1}`} />
+              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                <a href={`#${images[prev].id}`} className="btn btn-circle" onClick={() => handleNav(prev)}>❮</a>
+                <a href={`#${images[next].id}`} className="btn btn-circle" onClick={() => handleNav(next)}>❯</a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Slide number display */}
+      <div className="absolute center-0 right-4 bg-base-100/80 text-sm px-3 py-1 rounded-full shadow-md text-success font-semibold">
+        {currentIndex + 1} / {totalSlides}
+      </div>
+
+
+      <h1 className="text-3xl font-bold text-success">Simple Retail POS System</h1>
+      <p className="text-lg font-semibold">Internship Project / Fullstack Web App</p>
       <p className="text-base text-neutral-content/80 leading-relaxed">
       A web-based Point-of-Sale (POS) system designed to streamline product sales, 
       inventory management, and operations across multiple branches.
@@ -35,46 +72,7 @@ const PosProjects = () => {
         <a href="https://github.com/patipat003/PosProject" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
           <FaGithub /> GitHub
         </a>
-      </div>
-
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide4" className="btn btn-circle">❮</a>
-            <a href="#slide2" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide1" className="btn btn-circle">❮</a>
-            <a href="#slide3" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide2" className="btn btn-circle">❮</a>
-            <a href="#slide4" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" className="btn btn-circle">❮</a>
-            <a href="#slide1" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-      </div>
+      </div>  
     </motion.div>
   );
 }
@@ -87,8 +85,47 @@ const GameProjects = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-3xl font-bold text-success">Game Crime Scen – Game Development</h1>
-      <p className="text-lg font-semibold">Final Project</p>
+      <div className="carousel w-full">
+        <div id="game1" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+            className="w-full" />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#game4" className="btn btn-circle">❮</a>
+            <a href="#game2" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="game2" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+            className="w-full" />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#game1" className="btn btn-circle">❮</a>
+            <a href="#sgame3" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="game3" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+            className="w-full" />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#game2" className="btn btn-circle">❮</a>
+            <a href="#game4" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="game4" className="carousel-item relative w-full">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+            className="w-full" />
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a href="#game3" className="btn btn-circle">❮</a>
+            <a href="#game1" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-success">Game Crime Scene </h1>
+      <p className="text-lg font-semibold">Final Project / Game Development</p>
       <p className="text-base text-neutral-content/80 leading-relaxed">
       Developed a 3D crime investigation game titled "Crime Investigation" using Unity. 
       The game features core systems including basic player controls, score tracking, point collection, 
@@ -105,45 +142,6 @@ const GameProjects = () => {
           <FaGithub /> GitHub (Souce Code)
         </a>
       </div>
-
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide4" className="btn btn-circle">❮</a>
-            <a href="#slide2" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide1" className="btn btn-circle">❮</a>
-            <a href="#slide3" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide2" className="btn btn-circle">❮</a>
-            <a href="#slide4" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" className="btn btn-circle">❮</a>
-            <a href="#slide1" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-      </div>
     </motion.div>
   );
 }
@@ -154,7 +152,7 @@ const Projects = () => {
       <PosProjects />
       <GameProjects />
     </div>
-  );
+  );  
 }
 
 export default Projects;    

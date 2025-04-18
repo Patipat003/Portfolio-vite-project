@@ -9,7 +9,7 @@ const Portfolio = () => {
   return (
     <section id="home" data-theme="synthwave" className="bg-base-200 text-neutral-content font-sans ">
       <Header />
-      <div id="home" className="w-full max-w-screen-lg mx-auto px-4 py-8 bg-base-200 text-neutral-content">
+      <div id="home" className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content">
   
         {/* Info Section */}
         <motion.div
