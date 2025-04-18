@@ -1,53 +1,57 @@
 import React from "react";
-import { motion } from "framer-motion";  // ✅ เพิ่ม Framer Motion
-import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaUnity, FaReact, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaGithub } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
 import { AiOutlineOpenAI } from "react-icons/ai";
-import { TbBrandCSharp } from "react-icons/tb";
+import { TbBrandCSharp, TbBrandReact, TbBrandTailwind } from "react-icons/tb";
+import { SiDaisyui, SiUnity } from "react-icons/si";
+import { CIcon } from "@coreui/icons-react";
+import { cibPostgresql, cibPostman } from "@coreui/icons";
+
 
 const skills = [
+  // Programming Languages
   { name: "JavaScript", icon: <FaJs />, category: "Programming Languages" },
   { name: "HTML", icon: <FaHtml5 />, category: "Programming Languages" },
   { name: "CSS", icon: <FaCss3Alt />, category: "Programming Languages" },
   { name: "SQL", icon: <FaDatabase />, category: "Programming Languages" },
-  { name: "Unity C#", icon: <TbBrandCSharp />, category: "Programming Languages" },
+  { name: "C# (Unity)", icon: <TbBrandCSharp />, category: "Programming Languages" },
   { name: "Golang", icon: <FaGolang />, category: "Programming Languages" },
 
-  { name: "React", icon: <FaReact />, category: "Frameworks" },
-  { name: "Fiber", icon: <FaGolang />, category: "Frameworks" },
-  { name: "Gorm", icon: <FaGolang />, category: "Frameworks" },
-  { name: "Tailwind CSS", icon: <FaReact />, category: "Frameworks" },
-  { name: "DaisyUI", icon: <FaReact />, category: "Frameworks" },
+  // Frameworks & Libraries
+  { name: "React", icon: <TbBrandReact />, category: "Frameworks" },
+  { name: "Go Fiber", icon: <FaGolang />, category: "Frameworks" },
+  { name: "Go Gorm", icon: <FaGolang />, category: "Frameworks" },
+  { name: "Tailwind CSS", icon: <TbBrandTailwind />, category: "Frameworks" },
+  { name: "DaisyUI", icon: <SiDaisyui />, category: "Frameworks" },
 
+  // Tools & Platforms
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
-  { name: "PostgreSQL", icon: <FaReact />, category: "Tools"},
-  { name: "Postman", icon: <FaReact />, category: "Tools"},
-  { name: "Github", icon: <FaGithub />, category: "Tools"},
-  { name: "Unity", icon: <FaUnity />, category: "Tools" },
+  { name: "PostgreSQL", icon: <CIcon icon={cibPostgresql} size="xl" />, category: "Tools" },
+  { name: "Postman", icon: <CIcon icon={cibPostman} size="xl" />, category: "Tools" },
+  { name: "GitHub", icon: <FaGithub />, category: "Tools" },
+  { name: "Unity", icon: <SiUnity />, category: "Tools" },
   { name: "ChatGPT", icon: <AiOutlineOpenAI />, category: "Tools" },
 ];
 
 const Skills = () => {
   return (
-    <motion.div 
+    <motion.div
       className="flex w-full flex-col items-center text-neutral-content text-lg"
-      initial={{ opacity: 0, y: 50 }}  // ✅ เฟดอินและขยับขึ้น
+      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-2xl font-bold my-8 text-success">Skills</h1>
-
       <SkillSection title="- Programming Languages -" skills={skills} category="Programming Languages" />
-      <SkillSection title="- Frameworks -" skills={skills} category="Frameworks" />
-      <SkillSection title="- Tools -" skills={skills} category="Tools" />
+      <SkillSection title="- Frameworks & Libraries -" skills={skills} category="Frameworks" />
+      <SkillSection title="- Tools & Platforms -" skills={skills} category="Tools" />
     </motion.div>
   );
 };
 
-// ✅ ใช้ motion.div และ animate ให้แต่ละ card มีเอฟเฟกต์
 const SkillSection = ({ title, skills, category }) => (
-  <motion.div 
+  <motion.div
     className="w-full px-8 mb-8"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -55,20 +59,19 @@ const SkillSection = ({ title, skills, category }) => (
     transition={{ duration: 0.5 }}
   >
     <h2 className="text-xl font-semibold mb-8 text-center">{title}</h2>
-    <div className="grid grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
       {skills
         .filter((skill) => skill.category === category)
         .map((skill, index) => (
           <motion.div
             key={index}
-            className="w-full h-42 flex flex-col justify-center items-center rounded-lg shadow-lg text-white mb-8"
-            whileHover={{ scale: 1.1, backgroundColor: "#4F46E5" }} // ✅ Hover effect
+            className="w-full h-42 flex flex-col justify-center items-center rounded-lg shadow-lg text-white p-4"
+            whileHover={{ scale: 1.1, backgroundColor: "#4F46E5" }}
             transition={{ type: "spring", stiffness: 200 }}
           >
-            <div className="text-6xl mb-2">{skill.icon}</div>
-            <p className="text-lg">{skill.name}</p>
+            <div className="text-5xl mb-2">{skill.icon}</div>
+            <p className="text-center text-base">{skill.name}</p>
           </motion.div>
-          
         ))}
     </div>
     <div className="divider lg:divider-vertical"></div>

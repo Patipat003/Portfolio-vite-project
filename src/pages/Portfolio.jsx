@@ -1,88 +1,97 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Header from "../components/layout/Header";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import Header from "../components/layout/header";
 import Skills from "../components/layout/Skills";
+import Projects from "../components/layout/Projects";
 
 const Portfolio = () => {
   return (
-    <div data-theme="synthwave" className="w-full max-w-screen-lg mx-auto px-4 mx-8 bg-base-200 font-sans">
+    <div id="home" data-theme="synthwave" className="w-full max-w-screen-lg mx-auto px-4 py-8 font-sans bg-base-200 text-neutral-content">
       <Header />
 
+      {/* Info Section */}
       <motion.div
-        className="flex w-full flex-col lg:flex-row gap-4 p-4"
-        initial={{ opacity: 0, y: 50 }}  // ✅ เฟดอินและขยับขึ้น
+        className="grid grid-cols-1 lg:grid-cols-7 gap-8 mt-10 items-center"
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        
-
-      {/* Information */}
-      {/* <motion.div className="flex w-full flex-col lg:flex-row gap-4 p-4"> */}
-        
-        <div className="card grow max-w-xs mx-auto lg:max-w-md place-items-center">
-          <div className="avatar">
-            <div className="w-72 overflow-hidden">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                alt="Profile"
-              />
-            </div>
+        {/* Avatar */}
+        <div className="md:col-span-2 flex justify-center">
+          <div className="lg:w-72 w-36 mask mask-circle shadow-lg">
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              alt="Profile"
+              className="object-cover"
+            />
           </div>
         </div>
 
-        <div className="divider lg:divider-horizontal"></div>
-        <div className="card rounded-box grid h-32 grow place-items-center flex flex-col p-4">
-          <div>
-            <div className="mb-8 font-semibold text-3xl text-success">Patipat Singhasri</div>
-            <div className="mockup-code bg-base-100 text-primary-content w-full">
-              <pre data-prefix="$" className="text-success ">
-                <code>
-                  👋 Hello! My name is Patipat Singhasri. <span className="text-primary">I am a passionate Software
-                     Developer </span>
-                </code>
-              </pre>
-              <pre data-prefix=">" className="text-primary">
-                <code> specializing in Developer specializing in full-stack web development. </code>
-              </pre>
-              <pre data-prefix=">" className="text-primary">
-                <code> With experience in React, Vue, Nuxt3, Node.js, and MySQL, </code>
-              </pre> 
-              <pre data-prefix=">" className="text-primary">
-                <code> I have the skills to build, maintain, </code>
-              </pre> 
-              <pre data-prefix=">" className="text-primary">
-                <code> and optimize both frontend and backend systems.  </code>
-              </pre> 
-              <pre data-prefix=">" className="text-primary">
-                <code> I am committed to continuous learning and leveraging cutting-edge </code>
-              </pre>
-              <pre data-prefix=">" className="text-primary">
-                <code> technologies to develop efficient and user-centric applications. </code>
-              </pre> 
-              <pre data-prefix=">" className="text-primary">
-                <code> Looking forward to bringing my expertise to your organization! 🚀  </code>
-              </pre> 
-              <pre data-prefix=">" className="text-info">
-                <code>💻 Front-end Developer | Full-stack Enthusiast</code>
-              </pre>
-              <pre data-prefix=">" className="text-warning">
-                <code>📌 Passionate about UI/UX, Performance, and Scalability</code>
-              </pre>
-              <pre data-prefix=">" className="text-success">
-                <code>🌱 Always learning and exploring new technologies</code>
-              </pre>
-            </div>
+        {/* Bio */}
+        <motion.div
+          className="md:col-span-5 backdrop-blur-md bg-base-100/60 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+        >
+          <h1 className="md:text-3xl text-xl font-bold text-success">Patipat Singhasri (Champ)</h1>
+          <p className="text-base text-neutral-content/80 leading-relaxed">
+            I'm a recent Information Technology graduate from Mahasarakham University with 4 months of internship experience in full-stack development using 
+            <strong> React</strong>, <strong>Tailwind CSS</strong>, <strong>Golang</strong>, and <strong>PostgreSQL</strong>. 
+            I enjoy building clean, user-friendly interfaces and am eager to keep learning and improving. 
+            I'm seeking a role as a <strong>Junior Frontend Developer</strong> to grow with an experienced team, 
+            and I’m also open to opportunities in <strong>System Analyst</strong> roles.
+          </p>
+          <ul className="list-disc list-inside text-sm text-success">
+            <li>💻 Front-end Developer | Full-stack Enthusiast</li>
+            <li>📌 Passionate about UI/UX, Performance, and Scalability</li>
+            <li>🌱 Always learning and exploring new technologies</li>
+          </ul>
 
+          {/* Social Icons */}
+          <div className="flex space-x-4 mt-4">
+            <a href="https://github.com/patipat003" target="_blank" rel="noreferrer">
+              <FaGithub className="text-xl hover:text-primary transition" />
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
+              <FaLinkedin className="text-xl hover:text-primary transition" />
+            </a>
+            <a href="mailto:patipat.singhasri@gmail.com">
+              <FaEnvelope className="text-xl hover:text-primary transition" />
+            </a>
           </div>
-        </div>
+
+          {/* Download Resume Button */}
+          <div className="mt-4">
+            <a href="/resume.pdf" target="_blank" className="btn btn-sm btn-success">
+              📄 Download Resume
+            </a>
+          </div>
+        </motion.div>
       </motion.div>
-      <div className="mt-20">
-        <div className="divider lg:divider-vertical"></div>
-        
-        {/* Skills */}
+
+      {/* Skills Section */}
+      <section id="skills" className="mt-16">
+
+        {/* Divider */}
+        <div className="mt-16 mb-8">
+          <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Skills</div>
+        </div>
+
         <Skills />
-      </div>
+      </section>
       
+      {/* Projects Section */}
+      <section id="projects">
+
+        {/* Divider */}
+        <div className="mt-16 mb-8">
+          <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Projects</div>
+        </div>
+
+        <Projects />
+      </section>
     </div>
   );
 };
