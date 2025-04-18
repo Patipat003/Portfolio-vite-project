@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import Header from "../components/layout/header";
+import Header from "../components/layout/Header";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
 
