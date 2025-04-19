@@ -4,6 +4,7 @@ import { FaGithub, FaEnvelope } from "react-icons/fa";
 import Header from "../components/layout/Header";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
+import Contact from "../components/layout/Contact";
 
 const Portfolio = () => {
   return (
@@ -91,7 +92,21 @@ const Portfolio = () => {
 
           <Projects />
         </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="scroll-mt-26">
+
+          {/* Divider */}
+          <div className="mt-16 mb-8">
+            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Contact</div>
+          </div>
+
+          <Contact />
+        </section>
+
       </div>
+
+      {/* footer Section */}
       <footer className="text-center text-xs text-gray-500 my-6">
         © {new Date().getFullYear()} Patipat Singhasri. All rights reserved.
       </footer>

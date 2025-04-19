@@ -47,8 +47,8 @@ const Header = () => {
                 </li>
                 <span className="mt-2 mx-2 text-lg text-success/50 hidden md:inline">/</span>
                 <li>
-                  <a href="#about" className="text-lg md:text-xl font-semibold transition-all duration-300">
-                    About
+                  <a href="#contact" className="text-lg md:text-xl font-semibold transition-all duration-300">
+                    Contact
                   </a>
                 </li>
               </ul>
@@ -75,8 +75,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#about" className="text-lg md:text-xl font-semibold transition-all duration-300">
-                About
+              <a href="#contact" className="text-lg md:text-xl font-semibold transition-all duration-300">
+                Contact
               </a>
             </li>
           </ul>
