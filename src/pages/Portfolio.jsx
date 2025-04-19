@@ -13,14 +13,14 @@ const Portfolio = () => {
   
         {/* Info Section */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-7 lg:gap-8 mt-16 items-center space-x-4"
+          className="grid grid-cols-1 lg:grid-cols-7 lg:gap-8 mt-8 items-center space-x-4"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Avatar */}
           <div className="md:col-span-2 flex justify-center m-6">
-            <div className="lg:h-96 lg:w-[500px] w-1/3 mask shadow-lg">
+            <div className="lg:h-96 lg:w-[500px] w-1/2 mask shadow-lg">
               <img
                 src="https://i.pinimg.com/736x/d1/46/ee/d146eebbdad889c894ddf32bdde66856.jpg"
                 alt="Profile"
