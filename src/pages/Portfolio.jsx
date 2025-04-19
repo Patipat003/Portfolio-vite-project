@@ -71,7 +71,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Skills Section */}
-        <section id="skills" className="mt-16">
+        <section id="skills" className="scroll-mt-26">
 
           {/* Divider */}
           <div className="mt-16 mb-8">
@@ -82,7 +82,7 @@ const Portfolio = () => {
         </section>
         
         {/* Projects Section */}
-        <section id="projects">
+        <section id="projects" className="scroll-mt-26">
 
           {/* Divider */}
           <div className="mt-16 mb-8">
