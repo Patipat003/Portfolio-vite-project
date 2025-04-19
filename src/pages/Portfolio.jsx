@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaEnvelope } from "react-icons/fa";
 import Header from "../components/layout/Header";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
@@ -20,14 +20,15 @@ const Portfolio = () => {
         >
           {/* Avatar */}
           <div className="md:col-span-2 flex justify-center m-6">
-            <div className="lg:w-full w-36 mask shadow-lg">
+            <div className="lg:h-96 lg:w-[500px] w-1/3 mask shadow-lg">
               <img
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src="https://i.pinimg.com/736x/d1/46/ee/d146eebbdad889c894ddf32bdde66856.jpg"
                 alt="Profile"
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
           </div>
+
 
           {/* Bio */}
           <motion.div
@@ -54,9 +55,6 @@ const Portfolio = () => {
             <div className="flex space-x-4 mt-4">
               <a href="https://github.com/patipat003" target="_blank" rel="noreferrer">
                 <FaGithub className="text-xl hover:text-primary transition" />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
-                <FaLinkedin className="text-xl hover:text-primary transition" />
               </a>
               <a href="mailto:patipat.singhasri@gmail.com">
                 <FaEnvelope className="text-xl hover:text-primary transition" />

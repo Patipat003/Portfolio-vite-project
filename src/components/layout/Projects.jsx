@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
 const PosProjects = () => {
-  const totalSlides = 20;
-  const images = Array.from({ length: totalSlides }, (_, i) => ({
+  const totalPosSlides = 20;
+  const images = Array.from({ length: totalPosSlides }, (_, i) => ({
     id: `pos${i + 1}`,
-    src: `/projects/pos-${i + 1}.png`,
+    src: `/projects/pos-pic/pos-${i + 1}.png`,
   }));
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPosIndex, setCurrentPosIndex] = useState(0);
 
-  const handleNav = (toIndex) => {
-    setCurrentIndex((toIndex + totalSlides) % totalSlides);
+  const handleNav = (toPosIndex) => {
+    setCurrentPosIndex((toPosIndex + totalPosSlides) % totalPosSlides);
   };
 
   return (
@@ -26,8 +26,8 @@ const PosProjects = () => {
 
       <div className="carousel w-full rounded-lg">
         {images.map((img, index) => {
-          const prev = (index - 1 + totalSlides) % totalSlides;
-          const next = (index + 1) % totalSlides;
+          const prev = (index - 1 + totalPosSlides) % totalPosSlides;
+          const next = (index + 1) % totalPosSlides;
 
           return (
             <div key={img.id} id={img.id} className="carousel-item relative w-full">
@@ -43,7 +43,7 @@ const PosProjects = () => {
 
       {/* Slide number display */}
       <div className="absolute center-0 right-4 bg-base-100/80 text-sm px-3 py-1 rounded-full shadow-md text-success font-semibold">
-        {currentIndex + 1} / {totalSlides}
+        {currentPosIndex + 1} / {totalPosSlides}
       </div>
 
 
@@ -60,9 +60,9 @@ const PosProjects = () => {
       The backend API and PostgreSQL database are deployed on a Raspberry Pi 5 for efficient local testing and development.
       </p>
       <ul className="list-disc list-inside text-sm text-success">
-        <li>💻 React, Tailwind, Daisyui</li>
+        <li>💻 ReactJs, Tailwind, Daisyui</li>
         <li>📌 PostgreSQL, Postman</li>
-        <li>🌱 Golang, Gofiber, GoGorm</li>
+        <li>🌱 Golang, Gofiber, Gorm</li>
       </ul>
 
       {/* Github Button */}
@@ -76,6 +76,18 @@ const PosProjects = () => {
 }
 
 const GameProjects = () => {
+  const totalGameSlides = 12;
+  const images = Array.from({ length: totalGameSlides }, (_, i) => ({
+    id: `game${i + 1}`,
+    src: `/projects/game-pic/game-${i + 1}.png`,
+  }));
+
+  const [currentGameIndex, setCurrentGameIndex] = useState(0);
+
+  const handleNav = (toGameIndex) => {
+    setCurrentGameIndex((toGameIndex + totalGameSlides) % totalGameSlides);
+  };
+
   return (
     <motion.div
       className="md:col-span-7 backdrop-blur-md bg-base-100/60 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
@@ -83,43 +95,27 @@ const GameProjects = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
     >
-      <div className="carousel w-full">
-        <div id="game1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#game4" className="btn btn-circle">❮</a>
-            <a href="#game2" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="game2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#game1" className="btn btn-circle">❮</a>
-            <a href="#sgame3" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="game3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#game2" className="btn btn-circle">❮</a>
-            <a href="#game4" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="game4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#game3" className="btn btn-circle">❮</a>
-            <a href="#game1" className="btn btn-circle">❯</a>
-          </div>
-        </div>
+
+      <div className="carousel w-full rounded-lg">
+        {images.map((img, index) => {
+          const prev = (index - 1 + totalGameSlides) % totalGameSlides;
+          const next = (index + 1) % totalGameSlides;
+
+          return (
+            <div key={img.id} id={img.id} className="carousel-item relative w-full">
+              <img src={img.src} className="w-full object-contain" alt={`Slide ${index + 1}`} />
+              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                <a href={`#${images[prev].id}`} className="btn btn-circle" onClick={() => handleNav(prev)}>❮</a>
+                <a href={`#${images[next].id}`} className="btn btn-circle" onClick={() => handleNav(next)}>❯</a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Slide number display */}
+      <div className="absolute center-0 right-4 bg-base-100/80 text-sm px-3 py-1 rounded-full shadow-md text-success font-semibold">
+        {currentGameIndex + 1} / {totalGameSlides}
       </div>
 
       <h1 className="text-3xl font-bold text-success">Game Crime Scene </h1>
