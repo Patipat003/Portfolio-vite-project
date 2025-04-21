@@ -49,7 +49,7 @@ const PosProjects = () => {
 
       <h1 className="text-3xl font-bold text-success">Simple Retail POS System</h1>
       <p className="text-lg font-semibold">Internship Project / Fullstack Web App</p>
-      <p className="text-base text-neutral-content/80 leading-relaxed">
+      <p className="text-neutral-content/80 leading-relaxed">
       A web-based POS system that streamlines sales, inventory management, 
       and operations across branches. It features role-based authentication 
       (Cashier, Manager, Auditor), real-time sales and inventory tracking, 
@@ -120,7 +120,7 @@ const GameProjects = () => {
 
       <h1 className="text-3xl font-bold text-success">Game Crime Scene </h1>
       <p className="text-lg font-semibold">Final Project / Game Development</p>
-      <p className="text-base text-neutral-content/80 leading-relaxed">
+      <p className="text-neutral-content/80 leading-relaxed">
       Developed a 3D crime investigation game titled "Crime Investigation" using Unity. 
       The game features core systems including basic player controls, score tracking, point collection, 
       in-level interactions, a photo camera system, and a tablet with a UI interface.

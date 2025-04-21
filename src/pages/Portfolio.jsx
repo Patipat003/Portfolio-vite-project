@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaEnvelope } from "react-icons/fa";
-import Header from "../components/layout/Header";
+import Header from "../components/layout/header";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
 import Contact from "../components/layout/Contact";
@@ -23,7 +23,7 @@ const Portfolio = () => {
           <div className="md:col-span-2 flex justify-center m-6">
             <div className="lg:h-96 lg:w-[500px] w-1/2 mask shadow-lg">
               <img
-                src="https://i.pinimg.com/736x/d1/46/ee/d146eebbdad889c894ddf32bdde66856.jpg"
+                src="\Selfpic.png"
                 alt="Profile"
                 className="object-cover w-full h-full"
               />
@@ -42,9 +42,10 @@ const Portfolio = () => {
             <p className="text-base text-neutral-content/80 leading-relaxed">
               I'm a recent Information Technology graduate from Mahasarakham University with 4 months of internship experience in full-stack development using 
               <strong> React</strong>, <strong>Tailwind CSS</strong>, <strong>Golang</strong>, and <strong>PostgreSQL</strong>. 
-              I enjoy building clean, user-friendly interfaces and am eager to keep learning and improving. 
-              I'm seeking a role as a <strong>Junior Frontend Developer</strong> to grow with an experienced team, 
-              and I’m also open to opportunities in <strong>System Analyst</strong> roles.
+              I enjoy building clean, user-friendly interfaces and continuously seek to learn and grow. 
+              I'm especially interested in working as a <strong>Frontend Developer</strong>, but I'm also capable of handling 
+              <strong> Fullstack</strong> or <strong>Backend</strong> tasks when needed. I'm also open to opportunities in 
+              <strong> System Analyst</strong> roles.
             </p>
             <ul className="list-disc list-inside text-sm text-success">
               <li>💻 Front-end Developer | Full-stack Enthusiast</li>

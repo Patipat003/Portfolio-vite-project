@@ -1,13 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaGithub } from "react-icons/fa";
+import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaGithub, FaFigma } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
 import { AiOutlineOpenAI } from "react-icons/ai";
 import { TbBrandCSharp, TbBrandReact, TbBrandTailwind } from "react-icons/tb";
-import { SiDaisyui, SiUnity } from "react-icons/si";
-import { CIcon } from "@coreui/icons-react";
-import { cibPostgresql, cibPostman } from "@coreui/icons";
+import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet } from "react-icons/si";
 
 
 const skills = [
@@ -20,18 +18,20 @@ const skills = [
   { name: "Golang", icon: <FaGolang />, category: "Programming Languages" },
 
   // Frameworks & Libraries
-  { name: "React", icon: <TbBrandReact />, category: "Frameworks" },
+  { name: "ReactJs", icon: <TbBrandReact />, category: "Frameworks" },
   { name: "GoFiber, Gorm", icon: <FaGolang />, category: "Frameworks" },
   { name: "Tailwind CSS", icon: <TbBrandTailwind />, category: "Frameworks" },
   { name: "DaisyUI", icon: <SiDaisyui />, category: "Frameworks" },
 
   // Tools & Platforms
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
-  { name: "PostgreSQL", icon: <CIcon icon={cibPostgresql} size="xl" />, category: "Tools" },
-  { name: "Postman", icon: <CIcon icon={cibPostman} size="xl" />, category: "Tools" },
+  { name: "PostgreSQL", icon: <FaDatabase />, category: "Tools" },
+  { name: "Postman", icon: <SiPostman />, category: "Tools" },
   { name: "GitHub", icon: <FaGithub />, category: "Tools" },
   { name: "Unity", icon: <SiUnity />, category: "Tools" },
   { name: "ChatGPT", icon: <AiOutlineOpenAI />, category: "Tools" },
+  { name: "Figma", icon: <FaFigma />, category: "Tools" },
+  { name: "Draw.io", icon: <SiDiagramsdotnet />, category: "Tools" },
 ];
 
 const Skills = () => {
