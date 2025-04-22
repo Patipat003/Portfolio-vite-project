@@ -24,17 +24,17 @@ const Contact = () => {
                 📧
               </div>
               <div className="flex-1">
-                <div className="text-sm text-success font-semibold">Email</div>
-                <div className="text-neutral-content/80 font-medium">
-                  patipat.singhasri@gmail.com
+                <div className="flex text-sm text-success font-semibold">Email</div>
+                <div className="flex items-center text-neutral-content/80 font-medium">
+                  <span>patipat.singhasri@gmail.com</span>
+                  <button
+                    onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
+                    className="ml-2 p-1 rounded hover:bg-gray-200"
+                  >
+                    <Copy size={16} />
+                  </button>
                 </div>
               </div>
-              <button
-                onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
-                className="p-2 rounded hover:bg-gray-200"
-              >
-                <Copy size={18} />
-              </button>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -83,7 +83,7 @@ const Contact = () => {
 
         <div className="space-y-4">
           <h2 className="text-success font-semibold text-lg">Contact Summary</h2>
-          <div className="text-sm text-neutral-content/90 leading-relaxed">
+          <div className="pr-2 text-sm text-neutral-content/90 leading-relaxed">
             Whether you're looking to collaborate, hire, or just chat tech —
             I'm always open. Let's connect!
           </div>
