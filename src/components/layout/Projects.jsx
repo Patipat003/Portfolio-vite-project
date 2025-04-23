@@ -48,7 +48,7 @@ const PosProjects = () => {
 
 
       <h1 className="text-3xl font-bold text-success">Simple Retail POS System</h1>
-      <p className="text-lg font-semibold">Internship Project / Fullstack Web Development</p>
+      <p className="text-lg font-semibold">Internship Project / Full Stack Web Development</p>
       <p className="text-neutral-content/80 leading-relaxed">
       A web-based POS system that streamlines sales, inventory management, 
       and operations across branches. It features role-based authentication 
