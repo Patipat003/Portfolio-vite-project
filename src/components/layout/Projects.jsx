@@ -48,7 +48,7 @@ const PosProjects = () => {
 
 
       <h1 className="text-3xl font-bold text-success">Simple Retail POS System</h1>
-      <p className="text-lg font-semibold">Internship Project / Fullstack Web App</p>
+      <p className="text-lg font-semibold">Internship Project / Fullstack Web Development</p>
       <p className="text-neutral-content/80 leading-relaxed">
       A web-based POS system that streamlines sales, inventory management, 
       and operations across branches. It features role-based authentication 
@@ -96,12 +96,13 @@ const GameProjects = () => {
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
     >
 
-      <div className="carousel w-full rounded-lg">
+      <div className="carousel w-full rounded-lg ">
         {images.map((img, index) => {
           const prev = (index - 1 + totalGameSlides) % totalGameSlides;
           const next = (index + 1) % totalGameSlides;
 
           return (
+            
             <div key={img.id} id={img.id} className="carousel-item relative w-full">
               <img src={img.src} className="w-full object-contain" alt={`Slide ${index + 1}`} />
               <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">

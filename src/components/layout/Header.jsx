@@ -26,7 +26,7 @@ const Header = () => {
                 </svg>
               </label>
             </div>
-            <div className="hidden flex-none border-b-2 border-success text-neutral-content lg:block">
+            <nav className="hidden flex-none border-b-2 border-success text-neutral-content lg:block">
               <ul className="menu menu-horizontal px-1 text-success justify-end w-full">
                 <li>
                   <a href="#home" className="text-lg md:text-xl font-semibold transition-all duration-300">
@@ -52,7 +52,7 @@ const Header = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </nav>
           </div>
         </div>
         <div className="drawer-side">
