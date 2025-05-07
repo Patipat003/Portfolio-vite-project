@@ -25,11 +25,11 @@ const Contact = () => {
               </div>
               <div className="flex-1">
                 <div className="flex text-sm text-success font-semibold">Email</div>
-                <div className="flex items-center text-neutral-content/80 font-medium">
+                <div className="flex items-center text-neutral-content/80 font-medium cursor-pointer"
+                onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}>
                   <span>patipat.singhasri@gmail.com</span>
                   <button
-                    onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
-                    className="ml-2 p-1 rounded hover:bg-gray-200"
+                    className="ml-2 p-1 rounded cursor-pointer"
                   >
                     <Copy size={16} />
                   </button>

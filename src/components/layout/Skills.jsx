@@ -1,37 +1,49 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaJs, FaHtml5, FaCss3Alt, FaDatabase, FaGithub, FaFigma } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaNodeJs, FaGithub, FaReact, FaDatabase } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
-import { AiOutlineOpenAI } from "react-icons/ai";
-import { TbBrandCSharp, TbBrandReact, TbBrandTailwind } from "react-icons/tb";
-import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet } from "react-icons/si";
+import { TbBrandCSharp, TbBrandVercel } from "react-icons/tb";
+import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet, SiNetlify,   
+        SiMongodb, SiTailwindcss, SiLeaflet, SiVite, SiExpress, SiSocketdotio } from "react-icons/si";
+import { BiLogoTypescript, BiLogoJavascript, BiLogoPostgresql } from "react-icons/bi";
 
 
 const skills = [
   // Programming Languages
-  { name: "JavaScript", icon: <FaJs />, category: "Programming Languages" },
+  { name: "JavaScript", icon: <BiLogoJavascript />, category: "Programming Languages" },
+  { name: "TypeScript", icon: <BiLogoTypescript />, category: "Programming Languages" },
   { name: "HTML", icon: <FaHtml5 />, category: "Programming Languages" },
   { name: "CSS", icon: <FaCss3Alt />, category: "Programming Languages" },
-  { name: "SQL", icon: <FaDatabase />, category: "Programming Languages" },
   { name: "C# (Unity)", icon: <TbBrandCSharp />, category: "Programming Languages" },
   { name: "Golang", icon: <FaGolang />, category: "Programming Languages" },
 
-  // Frameworks & Libraries
-  { name: "ReactJs", icon: <TbBrandReact />, category: "Frameworks" },
-  { name: "GoFiber, Gorm", icon: <FaGolang />, category: "Frameworks" },
-  { name: "Tailwind CSS", icon: <TbBrandTailwind />, category: "Frameworks" },
-  { name: "DaisyUI", icon: <SiDaisyui />, category: "Frameworks" },
+  // Frontend
+  { name: "React", icon: <FaReact />, category: "Frontend" },
+  { name: "Tailwind CSS", icon: <SiTailwindcss />, category: "Frontend" },
+  { name: "DaisyUI", icon: <SiDaisyui />, category: "Frontend" },
+  { name: "Leaflet", icon: <SiLeaflet />, category: "Frontend" },
+  { name: "Vite", icon: <SiVite />, category: "Frontend" },
 
-  // Tools & Platforms
+  // Backend
+  { name: "NodeJs", icon: <FaNodeJs />, category: "Backend" },
+  { name: "Express", icon: <SiExpress />, category: "Backend" },
+  { name: "GoFiber", icon: <FaGolang />, category: "Backend" },
+  { name: "Gorm", icon: <FaDatabase />, category: "Backend" },
+  { name: "Socket.IO", icon: <SiSocketdotio />, category: "Backend" },
+  { name: "Postman", icon: <SiPostman />, category: "Backend" },
+  
+  // Database
+  { name: "PostgreSQL", icon: <BiLogoPostgresql />, category: "Database" },
+  { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
+  
+  // Tools
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
-  { name: "PostgreSQL", icon: <FaDatabase />, category: "Tools" },
-  { name: "Postman", icon: <SiPostman />, category: "Tools" },
   { name: "GitHub", icon: <FaGithub />, category: "Tools" },
   { name: "Unity", icon: <SiUnity />, category: "Tools" },
-  { name: "ChatGPT", icon: <AiOutlineOpenAI />, category: "Tools" },
-  { name: "Figma", icon: <FaFigma />, category: "Tools" },
   { name: "Draw.io", icon: <SiDiagramsdotnet />, category: "Tools" },
+  { name: "Netlify", icon: <SiNetlify />, category: "Tools" },
+  { name: "Vercel", icon: <TbBrandVercel />, category: "Tools" },
 ];
 
 const Skills = () => {
@@ -43,8 +55,10 @@ const Skills = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <SkillSection title="- Programming Languages -" skills={skills} category="Programming Languages" />
-      <SkillSection title="- Frameworks & Libraries -" skills={skills} category="Frameworks" />
-      <SkillSection title="- Tools & Platforms -" skills={skills} category="Tools" />
+      <SkillSection title="- Frontend -" skills={skills} category="Frontend" />
+      <SkillSection title="- Backend -" skills={skills} category="Backend" />
+      <SkillSection title="- Database -" skills={skills} category="Database" />
+      <SkillSection title="- Tools -" skills={skills} category="Tools" />
     </motion.div>
   );
 };
@@ -58,13 +72,13 @@ const SkillSection = ({ title, skills, category }) => (
     transition={{ duration: 0.5 }}
   >
     <h2 className="text-xl font-semibold mb-8 text-center">{title}</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
       {skills
         .filter((skill) => skill.category === category)
         .map((skill, index) => (
           <motion.div
             key={index}
-            className="w-full h-42 flex flex-col justify-center items-center rounded-lg shadow-lg text-white p-4"
+            className="w-full h-36 flex flex-col justify-center items-center rounded-lg shadow-lg text-white p-4"
             whileHover={{ scale: 1.1, backgroundColor: "#4F46E5" }}
             transition={{ type: "spring", stiffness: 200 }}
           >

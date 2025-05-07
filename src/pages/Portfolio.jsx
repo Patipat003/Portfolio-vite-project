@@ -21,7 +21,7 @@ const Portfolio = () => {
         >
           {/* Avatar */}
           <div className="md:col-span-2 flex justify-center m-6">
-            <div className="lg:h-96 lg:w-[500px] w-1/2 mask shadow-lg">
+            <div className="lg:h-72 lg:w-[460px] w-1/3 md:w-1/4 mask shadow-lg">
               <img
                 src="\Selfpic.png"
                 alt="Profile"
@@ -40,8 +40,7 @@ const Portfolio = () => {
           >
             <h1 className="md:text-3xl text-xl font-bold text-success">Patipat Singhasri (Champ)</h1>
             <p className="text-base text-neutral-content/80 leading-relaxed">
-              I'm a recent Information Technology graduate from Mahasarakham University with 4 months of internship experience in full-stack development using 
-              <strong> React</strong>, <strong>Tailwind CSS</strong>, <strong>Golang</strong>, and <strong>PostgreSQL</strong>. 
+              I'm a recent Information Technology graduate from Mahasarakham University with 4 months of internship experience in full-stack development. 
               I enjoy building clean, user-friendly interfaces and continuously seek to learn and grow. 
               I'm especially interested in working as a <strong>Frontend Developer</strong>, but I'm also capable of handling 
               <strong> Fullstack</strong> or <strong>Backend</strong> tasks when needed. I'm also open to opportunities in 
