@@ -4,7 +4,7 @@ import { FaHtml5, FaCss3Alt, FaNodeJs, FaGithub, FaReact, FaDatabase } from "rea
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
 import { TbBrandCSharp, TbBrandVercel } from "react-icons/tb";
-import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet, SiNetlify,   
+import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet, SiNetlify, SiSupabase,  
         SiMongodb, SiTailwindcss, SiLeaflet, SiVite, SiExpress, SiSocketdotio } from "react-icons/si";
 import { BiLogoTypescript, BiLogoJavascript, BiLogoPostgresql } from "react-icons/bi";
 
@@ -44,6 +44,7 @@ const skills = [
   { name: "Draw.io", icon: <SiDiagramsdotnet />, category: "Tools" },
   { name: "Netlify", icon: <SiNetlify />, category: "Tools" },
   { name: "Vercel", icon: <TbBrandVercel />, category: "Tools" },
+  { name: "Supabase", icon: <SiSupabase />, category: "Tools" },
 ];
 
 const Skills = () => {
@@ -72,7 +73,7 @@ const SkillSection = ({ title, skills, category }) => (
     transition={{ duration: 0.5 }}
   >
     <h2 className="text-xl font-semibold mb-8 text-center">{title}</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-6">
       {skills
         .filter((skill) => skill.category === category)
         .map((skill, index) => (

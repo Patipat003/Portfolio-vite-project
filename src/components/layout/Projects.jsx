@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { Carousel } from "flowbite-react";
 
 const PosProjects = () => {
-  const totalPosSlides = 20;
+  const totalPosSlides = 22;
   const images = Array.from({ length: totalPosSlides }, (_, i) => ({
     id: `pos${i + 1}`,
     src: `/projects/pos-pic/pos-${i + 1}.png`,
