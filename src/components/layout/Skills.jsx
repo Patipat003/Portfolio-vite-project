@@ -36,6 +36,7 @@ const skills = [
   // Database
   { name: "PostgreSQL", icon: <BiLogoPostgresql />, category: "Database" },
   { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
+  { name: "Supabase", icon: <SiSupabase />, category: "Database" },
   
   // Tools
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
@@ -44,7 +45,6 @@ const skills = [
   { name: "Draw.io", icon: <SiDiagramsdotnet />, category: "Tools" },
   { name: "Netlify", icon: <SiNetlify />, category: "Tools" },
   { name: "Vercel", icon: <TbBrandVercel />, category: "Tools" },
-  { name: "Supabase", icon: <SiSupabase />, category: "Tools" },
 ];
 
 const Skills = () => {
