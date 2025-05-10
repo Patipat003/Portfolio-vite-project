@@ -32,11 +32,11 @@ const skills = [
   { name: "Gorm", icon: <FaDatabase />, category: "Backend" },
   { name: "Socket.IO", icon: <SiSocketdotio />, category: "Backend" },
   { name: "Postman", icon: <SiPostman />, category: "Backend" },
+  { name: "Supabase", icon: <SiSupabase />, category: "Backend" },
   
   // Database
   { name: "PostgreSQL", icon: <BiLogoPostgresql />, category: "Database" },
   { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
-  { name: "Supabase", icon: <SiSupabase />, category: "Database" },
   
   // Tools
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
