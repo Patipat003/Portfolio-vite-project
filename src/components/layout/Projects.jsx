@@ -44,6 +44,13 @@ const PosProjects = () => {
       </ul>
 
       <div className="flex flex-rows space-x-4">
+        {/* Web Button */}
+        <div>
+          <a href="https://pos-demo-pi.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
+           🌐 Website (Example)
+          </a>
+        </div> 
+
         {/* Github Button */}
         <div className="">
           <a href="https://github.com/patipat003/PosProject" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
@@ -106,19 +113,19 @@ const StockProjects = () => {
       </ul>
 
       <div className="flex flex-rows space-x-4">
+        {/* Web Button */}
+        <div>
+          <a href="https://mag7-stock-tracker-dgqz.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
+           🌐 Website (Example)
+          </a>
+        </div> 
+
         {/* Github Button */}
         <div className="">
           <a href="https://github.com/Patipat003/mag7-stock-tracker" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
             <FaGithub /> GitHub (Souce Code)
           </a>
         </div>
-
-        {/* Api spec Button */}
-        <div>
-          <a href="https://mag7-stock-tracker-dgqz.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
-           🌐 Website (Example)
-          </a>
-        </div>  
       </div>  
          
     </motion.div>

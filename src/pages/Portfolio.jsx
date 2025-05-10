@@ -21,7 +21,7 @@ const Portfolio = () => {
         >
           {/* Avatar */}
           <div className="md:col-span-2 flex justify-center m-6">
-            <div className="lg:h-72 lg:w-[460px] w-1/3 md:w-1/4 mask shadow-lg">
+            <div className="lg:h-72 lg:w-[460px] w-2/4 md:w-1/4 mask shadow-lg">
               <img
                 src="\Selfpic.png"
                 alt="Profile"
