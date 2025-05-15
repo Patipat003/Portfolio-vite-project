@@ -47,7 +47,7 @@ const PosProjects = () => {
         {/* Web Button */}
         <div>
           <a href="https://pos-demo-pi.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
-           🌐 Website (Example)
+              🌐 Website (Demo)
           </a>
         </div> 
 
@@ -65,7 +65,6 @@ const PosProjects = () => {
           </a>
         </div>  
       </div>  
-         
     </motion.div>
   );
 }
@@ -97,14 +96,14 @@ const StockProjects = () => {
       <p className="text-lg font-semibold">Personal Project / Full Stack Web Development</p>
       <p className="text-neutral-content/80 leading-relaxed">
         Developed a fullstack web app to monitor the “Magnificent 7” US tech stocks, 
-        featuring per-stock pages with real-time price, premarket data, 
-        high/low, volume, and related news headlines. Each stock includes 
-        an interactive chart with time filters (weekly, monthly, yearly) 
-        for better trend analysis. Users log in via token-based authentication and access live, 
-        room-based chat discussions powered by Socket.IO. The backend (Node.js, Express, MongoDB) 
-        fetches and stores stock data from the Yahoo Finance API, 
-        and exposes it securely via Cloudflared Tunnel. The frontend, 
-        built with React, Vite, Tailwind, and MUI, is deployed on Vercel and responsive user experience.
+        featuring per-stock pages with real-time price, premarket data, high/low, 
+        volume, and related news headlines. Each stock includes an interactive chart with time filters 
+        (weekly, monthly, yearly) for better trend analysis. Users log in via 
+        token-based authentication and access live, room-based chat discussions 
+        by Socket.IO. The backend (Node.js, Express, MongoDB) is deployed on AWS EC2, 
+        fetching and storing stock data from the Yahoo Finance API 
+        with HTTPS secured via Nginx and Let's Encrypt. The frontend, 
+        built with React, Vite, Tailwind and deployed on Vercel.
       </p>
       <ul className="list-disc list-inside text-sm text-success">
         <li>💻 ReactJs, Tailwind, Daisyui</li>
@@ -116,7 +115,7 @@ const StockProjects = () => {
         {/* Web Button */}
         <div>
           <a href="https://mag7-stock-tracker-dgqz.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
-           🌐 Website (Example)
+           🌐 Website (Demo)
           </a>
         </div> 
 

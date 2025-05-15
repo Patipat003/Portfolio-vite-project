@@ -32,7 +32,6 @@ const skills = [
   { name: "Gorm", icon: <FaDatabase />, category: "Backend" },
   { name: "Socket.IO", icon: <SiSocketdotio />, category: "Backend" },
   { name: "Postman", icon: <SiPostman />, category: "Backend" },
-  { name: "Supabase", icon: <SiSupabase />, category: "Backend" },
   
   // Database
   { name: "PostgreSQL", icon: <BiLogoPostgresql />, category: "Database" },
