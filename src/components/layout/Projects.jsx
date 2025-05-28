@@ -114,8 +114,8 @@ const StockProjects = () => {
       <div className="flex flex-rows space-x-4">
         {/* Web Button */}
         <div>
-          <a href="https://mag7-stock-tracker-dgqz.vercel.app/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
-           🌐 Website (Demo)
+          <a href="https://www.mag7tracker.xyz/" target="_blank" rel="noreferrer" className="btn btn-sm btn-success">
+            🌐 Website (Demo)
           </a>
         </div> 
 
