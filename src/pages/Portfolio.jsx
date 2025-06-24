@@ -1,17 +1,23 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaEnvelope } from "react-icons/fa";
 import Header from "../components/layout/Header";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
 import Contact from "../components/layout/Contact";
+import Button from "../components/ui/Button";
 
 const Portfolio = () => {
   return (
-    <div id="home" data-theme="synthwave" className="bg-base-200 text-neutral-content font-sans ">
+    <div
+      id="home"
+      data-theme="synthwave"
+      className="bg-base-200 text-neutral-content font-sans "
+    >
       <Header />
-      <div id="home" className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content">
-  
+      <div
+        id="home"
+        className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content"
+      >
         {/* Info Section */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-7 lg:gap-8 mt-8 items-center space-x-4"
@@ -30,20 +36,25 @@ const Portfolio = () => {
             </div>
           </div>
 
-
           {/* Bio */}
           <motion.div
             className="md:col-span-5 backdrop-blur-md bg-base-100/60 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 2, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="md:text-3xl text-xl font-bold text-success">Patipat Singhasri (Champ)</h1>
+            <h1 className="md:text-3xl text-xl font-bold text-success">
+              Patipat Singhasri (Champ)
+            </h1>
             <p className="text-base text-neutral-content/80 leading-relaxed">
-              I'm a recent Information Technology graduate from Mahasarakham University with 4 months of internship experience in full-stack development. 
-              I enjoy building clean, user-friendly interfaces and continuously seek to learn and grow. 
-              I'm especially interested in working as a <strong>Frontend Developer</strong>, but I'm also capable of handling 
-              <strong> Fullstack</strong> or <strong>Backend</strong> tasks when needed. I'm also open to opportunities in 
+              I'm a recent Information Technology graduate from Mahasarakham
+              University with 4 months of internship experience in full-stack
+              development. I enjoy building clean, user-friendly interfaces and
+              continuously seek to learn and grow. I'm especially interested in
+              working as a <strong>Frontend Developer</strong>, but I'm also
+              capable of handling
+              <strong> Fullstack</strong> or <strong>Backend</strong> tasks when
+              needed. I'm also open to opportunities in
               <strong> System Analyst</strong> roles.
             </p>
             <ul className="list-disc list-inside text-sm text-success">
@@ -54,7 +65,11 @@ const Portfolio = () => {
 
             {/* Social Icons */}
             <div className="flex space-x-4 mt-4">
-              <a href="https://github.com/patipat003" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/patipat003"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaGithub className="text-xl hover:text-primary transition" />
               </a>
               <a href="mailto:patipat.singhasri@gmail.com">
@@ -63,31 +78,32 @@ const Portfolio = () => {
             </div>
 
             {/* Download Resume Button */}
-            <div className="mt-4">
-              <a href="/Patipat's Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-success">
-                📄 Download Resume
-              </a>
-            </div>
+            <Button
+              link="https://drive.google.com/file/d/1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q/view?usp=sharing"
+              text="📄 Download Resume"
+            />
           </motion.div>
         </motion.div>
 
         {/* Skills Section */}
         <section id="skills" className="scroll-mt-26">
-
           {/* Divider */}
           <div className="mt-16 mb-8">
-            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Skills</div>
+            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">
+              Skills
+            </div>
           </div>
 
           <Skills />
         </section>
-        
+
         {/* Projects Section */}
         <section id="projects" className="scroll-mt-26">
-
           {/* Divider */}
           <div className="mt-16 mb-8">
-            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Projects</div>
+            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">
+              Projects
+            </div>
           </div>
 
           <Projects />
@@ -95,23 +111,22 @@ const Portfolio = () => {
 
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-26">
-
           {/* Divider */}
           <div className="mt-16 mb-8">
-            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">Contact</div>
+            <div className="divider before:bg-success after:bg-success font-bold text-success text-2xl">
+              Contact
+            </div>
           </div>
 
           <Contact />
         </section>
-
       </div>
 
       {/* footer Section */}
       <footer className="text-center text-xs text-gray-500 my-6">
         © {new Date().getFullYear()} Patipat Singhasri. All rights reserved.
       </footer>
-    </div>  
-    
+    </div>
   );
 };
 

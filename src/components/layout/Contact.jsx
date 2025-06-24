@@ -1,4 +1,3 @@
-import React from "react";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
 
@@ -14,8 +13,8 @@ const Contact = () => {
         <div>
           <h1 className="text-success text-3xl font-semibold">Let's Talk</h1>
           <p className="text-sm text-neutral-content/80 mt-4 leading-relaxed">
-            Have a project in mind or just want to connect? Feel free to reach out —
-            I’d love to chat.
+            Have a project in mind or just want to connect? Feel free to reach
+            out — I’d love to chat.
           </p>
 
           <div className="mt-12 space-y-6">
@@ -24,13 +23,15 @@ const Contact = () => {
                 📧
               </div>
               <div className="flex-1">
-                <div className="flex text-sm text-success font-semibold">Email</div>
-                <div className="flex items-center text-neutral-content/80 font-medium cursor-pointer"
-                onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}>
+                <div className="flex text-sm text-success font-semibold">
+                  Email
+                </div>
+                <div
+                  className="flex items-center text-neutral-content/80 font-medium cursor-pointer"
+                  onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
+                >
                   <span>patipat.singhasri@gmail.com</span>
-                  <button
-                    className="ml-2 p-1 rounded cursor-pointer"
-                  >
+                  <button className="ml-2 p-1 rounded cursor-pointer">
                     <Copy size={16} />
                   </button>
                 </div>
@@ -43,7 +44,9 @@ const Contact = () => {
               </div>
               <div className="flex-1">
                 <div className="text-sm text-success font-semibold">Phone</div>
-                <div className="text-neutral-content/80 font-medium">+66 98 584 6689</div>
+                <div className="text-neutral-content/80 font-medium">
+                  +66 98 584 6689
+                </div>
               </div>
             </div>
 
@@ -82,10 +85,12 @@ const Contact = () => {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-success font-semibold text-lg">Contact Summary</h2>
+          <h2 className="text-success font-semibold text-lg">
+            Contact Summary
+          </h2>
           <div className="pr-2 text-sm text-neutral-content/90 leading-relaxed">
-            Whether you're looking to collaborate, hire, or just chat tech —
-            I'm always open. Let's connect!
+            Whether you're looking to collaborate, hire, or just chat tech — I'm
+            always open. Let's connect!
           </div>
 
           <div className="border-t border-base-content/10 pt-4">

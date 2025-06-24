@@ -1,28 +1,55 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { FaHtml5, FaCss3Alt, FaNodeJs, FaGithub, FaReact, FaDatabase } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaNodeJs,
+  FaGithub,
+  FaReact,
+  FaDatabase,
+} from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { DiVisualstudio } from "react-icons/di";
 import { TbBrandCSharp, TbBrandVercel } from "react-icons/tb";
-import { SiDaisyui, SiUnity, SiPostman, SiDiagramsdotnet, SiNetlify, SiSupabase,  
-        SiMongodb, SiTailwindcss, SiLeaflet, SiVite, SiExpress, SiSocketdotio } from "react-icons/si";
-import { BiLogoTypescript, BiLogoJavascript, BiLogoPostgresql } from "react-icons/bi";
-
+import {
+  SiDaisyui,
+  SiUnity,
+  SiPostman,
+  SiDiagramsdotnet,
+  SiNetlify,
+  SiSupabase,
+  SiMongodb,
+  SiTailwindcss,
+  SiLeaflet,
+  SiVite,
+  SiExpress,
+  SiSocketdotio,
+} from "react-icons/si";
+import {
+  BiLogoTypescript,
+  BiLogoJavascript,
+  BiLogoPostgresql,
+} from "react-icons/bi";
 
 const skills = [
   // Programming Languages
-  { name: "JavaScript", icon: <BiLogoJavascript />, category: "Programming Languages" },
-  { name: "TypeScript", icon: <BiLogoTypescript />, category: "Programming Languages" },
+  {
+    name: "JavaScript",
+    icon: <BiLogoJavascript />,
+    category: "Programming Languages",
+  },
   { name: "HTML", icon: <FaHtml5 />, category: "Programming Languages" },
   { name: "CSS", icon: <FaCss3Alt />, category: "Programming Languages" },
-  { name: "C# (Unity)", icon: <TbBrandCSharp />, category: "Programming Languages" },
+  {
+    name: "C# (Unity)",
+    icon: <TbBrandCSharp />,
+    category: "Programming Languages",
+  },
   { name: "Golang", icon: <FaGolang />, category: "Programming Languages" },
 
   // Frontend
   { name: "React", icon: <FaReact />, category: "Frontend" },
   { name: "Tailwind CSS", icon: <SiTailwindcss />, category: "Frontend" },
   { name: "DaisyUI", icon: <SiDaisyui />, category: "Frontend" },
-  { name: "Leaflet", icon: <SiLeaflet />, category: "Frontend" },
   { name: "Vite", icon: <SiVite />, category: "Frontend" },
 
   // Backend
@@ -30,18 +57,16 @@ const skills = [
   { name: "Express", icon: <SiExpress />, category: "Backend" },
   { name: "GoFiber", icon: <FaGolang />, category: "Backend" },
   { name: "Gorm", icon: <FaDatabase />, category: "Backend" },
-  { name: "Socket.IO", icon: <SiSocketdotio />, category: "Backend" },
   { name: "Postman", icon: <SiPostman />, category: "Backend" },
-  
+
   // Database
   { name: "PostgreSQL", icon: <BiLogoPostgresql />, category: "Database" },
   { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
-  
+
   // Tools
   { name: "VS Code", icon: <DiVisualstudio />, category: "Tools" },
   { name: "GitHub", icon: <FaGithub />, category: "Tools" },
   { name: "Unity", icon: <SiUnity />, category: "Tools" },
-  { name: "Draw.io", icon: <SiDiagramsdotnet />, category: "Tools" },
   { name: "Netlify", icon: <SiNetlify />, category: "Tools" },
   { name: "Vercel", icon: <TbBrandVercel />, category: "Tools" },
 ];
@@ -54,7 +79,11 @@ const Skills = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <SkillSection title="- Programming Languages -" skills={skills} category="Programming Languages" />
+      <SkillSection
+        title="- Programming Languages -"
+        skills={skills}
+        category="Programming Languages"
+      />
       <SkillSection title="- Frontend -" skills={skills} category="Frontend" />
       <SkillSection title="- Backend -" skills={skills} category="Backend" />
       <SkillSection title="- Database -" skills={skills} category="Database" />
