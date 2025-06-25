@@ -1,5 +1,5 @@
-import { Copy } from "lucide-react";
 import { toast } from "sonner";
+import Button from "../ui/Button";
 
 const Contact = () => {
   const copyToClipboard = (text) => {
@@ -27,13 +27,10 @@ const Contact = () => {
                   Email
                 </div>
                 <div
-                  className="flex items-center text-neutral-content/80 font-medium cursor-pointer"
+                  className="flex items-center text-neutral-content/80 font-medium cursor-pointer hover:text-primary transition-colors"
                   onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
                 >
                   <span>patipat.singhasri@gmail.com</span>
-                  <button className="ml-2 p-1 rounded cursor-pointer">
-                    <Copy size={16} />
-                  </button>
                 </div>
               </div>
             </div>
@@ -59,7 +56,7 @@ const Contact = () => {
                 <a
                   href="https://github.com/patipat003"
                   target="_blank"
-                  className="text-neutral-content/80 font-medium underline"
+                  className="text-neutral-content/80 font-medium underline hover:text-primary transition-colors"
                 >
                   github.com/patipat003
                 </a>
@@ -75,7 +72,7 @@ const Contact = () => {
                 <a
                   href="https://line.me/ti/p/~kz.champ"
                   target="_blank"
-                  className="text-neutral-content/80 font-medium underline"
+                  className="text-neutral-content/80 font-medium underline hover:text-primary transition-colors"
                 >
                   line.me
                 </a>
@@ -99,15 +96,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="pt-4">
-            <a
-              href="/Patipat's Resume.pdf"
-              target="_blank"
-              className="btn btn-sm btn-success"
-            >
-              📄 Download Resume
-            </a>
-          </div>
+          <Button link="../Patipat's Resume.pdf" text="📄 Download Resume" />
         </div>
       </div>
     </div>

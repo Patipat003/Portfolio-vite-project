@@ -18,7 +18,7 @@ const Card = ({
 
   return (
     <motion.div
-      className="md:col-span-7 backdrop-blur-md bg-base-100/60 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
+      className="md:col-span-7 backdrop-blur-md bg-base-100/60 mb-6 p-6 rounded-xl shadow-xl space-y-4 hover:scale-[1.01] transition-all duration-300"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
