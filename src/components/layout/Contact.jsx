@@ -1,10 +1,10 @@
-import { toast } from "sonner";
 import Button from "../ui/Button";
+import Toast from "../ui/Toast";
 
 const Contact = () => {
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
-    toast.success("Copied to clipboard");
+    Toast(`Copied to clipboard`);
   };
 
   return (
