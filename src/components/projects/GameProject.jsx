@@ -14,8 +14,7 @@ const GameProject = () => {
         4 levels, where players investigate crime scenes, collect evidence, and
         score points based on correct photos and answers. Designed a Tablet UI
         with features like Crime Details, a Wiki for evidence search, a Gallery
-        for photos, and an Exam for additional points. Used OOP principles to
-        structure scripts for easy reuse and maintenance. Utilized Unity Asset
+        for photos, and an Exam for additional points. Utilized Unity Asset
         Store assets for level decoration and object placement.`}
         tech={["💻 Unity C#", "📌 Sketchfab, Assets Store"]}
         buttons={[
