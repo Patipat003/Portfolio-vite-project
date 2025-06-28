@@ -6,9 +6,12 @@ const Header = () => {
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
           <div className="navbar h-24 flex items-center justify-end px-4 md:px-8">
-            <div className="text-lg md:text-4xl mx-2 flex-1 px-2 font-bold text-success">
+            <a
+              href="#home"
+              className="text-lg md:text-4xl mx-2 flex-1 px-2 font-bold text-success"
+            >
               PatipatS.
-            </div>
+            </a>
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -83,7 +86,7 @@ const Header = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 min-h-full w-80 p-4">
+          <ul className="menu bg-base-200 min-h-full w-3/4 p-4">
             {/* Sidebar content here */}
             <li>
               <a
