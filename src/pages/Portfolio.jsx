@@ -19,7 +19,7 @@ const Portfolio = () => {
         <Header />
         <div
           id="home"
-          className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content"
+          className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content overflow-x-hidden"
         >
           {/* Info Section */}
           <motion.div
