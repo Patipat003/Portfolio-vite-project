@@ -135,7 +135,7 @@ export const ProjectsData = [
     ],
     buttons: [
       {
-        link: "https://github.com/Patipat003/nextjs-basic-blogs",
+        link: "https://github.com/Patipat003/synthspells",
         label: (
           <span className="flex items-center gap-2">
             <FaGithub /> Source Code
@@ -143,7 +143,7 @@ export const ProjectsData = [
         ),
       },
       {
-        link: "https://news-blogs-projectz.vercel.app/",
+        link: "https://synthspells.vercel.app",
         label: (
           <span className="flex items-center gap-2">
             <FaExternalLinkAlt /> Demo
