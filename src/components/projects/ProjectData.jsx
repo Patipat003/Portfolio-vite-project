@@ -230,7 +230,7 @@ export const ProjectsData = [
     tech: ["NextJs", "TypeScript", "Tailwind CSS", "Newsapi", "Vercel"],
     buttons: [
       {
-        link: "https://github.com/Patipat003/chat-app-project",
+        link: "https://github.com/Patipat003/nextjs-basic-blogs",
         label: (
           <span className="flex items-center gap-2">
             <FaGithub /> Source Code
@@ -238,7 +238,7 @@ export const ProjectsData = [
         ),
       },
       {
-        link: "https://chat-app-sepia-iota-83.vercel.app",
+        link: "https://news-blogs-projectz.vercel.app",
         label: (
           <span className="flex items-center gap-2">
             <FaExternalLinkAlt /> Demo
