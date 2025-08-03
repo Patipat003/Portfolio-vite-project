@@ -1,6 +1,6 @@
 import { FaGithub, FaGoogleDrive, FaExternalLinkAlt } from "react-icons/fa";
 
-export const projectsData = [
+export const ProjectsData = [
   {
     id: "game-project",
     totalSlide: 12,
@@ -225,4 +225,4 @@ export const projectsData = [
   },
 ];
 
-export default projectsData;
+export default ProjectsData;

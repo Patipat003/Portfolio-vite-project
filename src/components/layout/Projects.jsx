@@ -1,11 +1,11 @@
 import Card from "../ui/Card";
-import { projectsData } from "../projects/projectsData";
+import { ProjectsData } from "../projects/ProjectData";
 
 const Projects = () => {
   return (
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1">
-        {projectsData.map((project) => (
+        {ProjectsData.map((project) => (
           <Card
             key={project.id}
             totalSlide={project.totalSlide}
