@@ -19,7 +19,7 @@ export const ProjectsData = [
         link: "https://drive.google.com/file/d/1_xihEVe-ViFV-ksg7FV0qGv_7lbk-MG_/view",
         label: (
           <span className="flex items-center gap-2">
-            <FaGoogleDrive /> Google Drive
+            <FaGoogleDrive /> Download (Google Drive)
           </span>
         ),
       },
