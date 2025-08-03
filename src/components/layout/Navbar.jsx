@@ -1,14 +1,14 @@
-const Header = () => {
+const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
+    <nav className="border-b border-success/20 sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
       <div className="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="navbar h-24 flex items-center justify-end px-4 md:px-8">
+          <div className="navbar h-20 flex items-center justify-end px-4 md:px-8">
             <a
               href="#home"
-              className="text-lg md:text-4xl mx-2 flex-1 px-2 font-bold text-success"
+              className="text-2xl md:text-4xl mx-2 flex-1 px-2 font-bold text-success"
             >
               PatipatS.
             </a>
@@ -123,8 +123,8 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

@@ -29,12 +29,18 @@ import {
   BiLogoJavascript,
   BiLogoPostgresql,
 } from "react-icons/bi";
+import { RiNextjsFill } from "react-icons/ri";
 
 const skills = [
   // Programming Languages
   {
     name: "JavaScript",
     icon: <BiLogoJavascript />,
+    category: "Programming Languages",
+  },
+  {
+    name: "TypeScript",
+    icon: <BiLogoTypescript />,
     category: "Programming Languages",
   },
   { name: "HTML", icon: <FaHtml5 />, category: "Programming Languages" },
@@ -48,6 +54,7 @@ const skills = [
 
   // Frontend
   { name: "React", icon: <FaReact />, category: "Frontend" },
+  { name: "Next.js", icon: <RiNextjsFill />, category: "Frontend" },
   { name: "Tailwind CSS", icon: <SiTailwindcss />, category: "Frontend" },
   { name: "DaisyUI", icon: <SiDaisyui />, category: "Frontend" },
   { name: "Vite", icon: <SiVite />, category: "Frontend" },
@@ -56,6 +63,7 @@ const skills = [
   { name: "NodeJs", icon: <FaNodeJs />, category: "Backend" },
   { name: "Express", icon: <SiExpress />, category: "Backend" },
   { name: "GoFiber", icon: <FaGolang />, category: "Backend" },
+  { name: "SQLC", icon: <FaGolang />, category: "Backend" },
   { name: "Gorm", icon: <FaDatabase />, category: "Backend" },
   { name: "Postman", icon: <SiPostman />, category: "Backend" },
 

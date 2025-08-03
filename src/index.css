@@ -1,8 +1,0 @@
-:root {
-  scrollbar-color: color-mix(in oklch, currentColor 35%, #00e887ba) #0000;
-  background-color: #120b3d;
-}
-
-html {
-  scroll-behavior: smooth;
-}

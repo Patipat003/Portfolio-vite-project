@@ -1,22 +1,24 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaEnvelope } from "react-icons/fa";
-import Header from "../components/layout/Header";
+import Navbar from "../components/layout/Navbar";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
 import Contact from "../components/layout/Contact";
 import Button from "../components/ui/Button";
 import { Toaster } from "sonner";
+import BackToTop from "../components/ui/BackToTop";
 
 const Portfolio = () => {
   return (
     <>
       <Toaster />
+      <BackToTop />
       <div
         id="home"
         data-theme="synthwave"
         className="bg-base-200 text-neutral-content font-sans "
       >
-        <Header />
+        <Navbar />
         <div
           id="home"
           className="w-full max-w-screen-lg mx-auto px-4 py-2 bg-base-200 text-neutral-content overflow-x-hidden"
