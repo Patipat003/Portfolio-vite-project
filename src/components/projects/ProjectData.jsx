@@ -226,7 +226,7 @@ export const ProjectsData = [
     picSrc: "./projects/blogs-pic/",
     title: "News Blog App",
     positions: "Personal Project / Frontend Web Development",
-    description: `Developed a dynamic news blog using React and NewsAPI, featuring slug-based routing for article pages. Implemented structured layouts to display article titles, author names, source sites, and images. Designed a responsive UI with Tailwind CSS. deployed on Vercel.`,
+    description: `Developed a dynamic news blog using React and NewsAPI, featuring slug-based routing for article pages and debouncing search article. Implemented structured layouts to display article titles, author names, source sites, and images. Designed a responsive UI with Tailwind CSS. deployed on Vercel.`,
     tech: ["NextJs", "TypeScript", "Tailwind CSS", "Newsapi", "Vercel"],
     buttons: [
       {
