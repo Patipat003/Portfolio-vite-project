@@ -34,7 +34,7 @@ export default function PetWidget() {
   }, []);
 
   return (
-    <div className="fixed bottom-0 right-8 z-50">
+    <div className="fixed bottom-0 right-10 z-50">
       <div className="flex items-center space-x-3">
         <div
           onClick={handlePet}

@@ -34,7 +34,7 @@ const Portfolio = () => {
             <div className="md:col-span-2 flex justify-center m-6">
               <div className="lg:h-72 lg:w-[460px] w-2/4 md:w-1/4 mask shadow-lg">
                 <img
-                  src="\Selfpic.png"
+                  src="\self-pic.png"
                   alt="Profile"
                   className="object-cover w-full h-full"
                 />
@@ -83,7 +83,7 @@ const Portfolio = () => {
               </div>
 
               {/* Download Resume Button */}
-              <Button link="./Patipat's Resume.pdf" text="📄 Download Resume" />
+              <Button link="./Resume.pdf" text="📄 Download Resume" />
             </motion.div>
           </motion.div>
 
