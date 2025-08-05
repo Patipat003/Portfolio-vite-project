@@ -179,7 +179,7 @@ const Card = ({
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
-                <div className="relative overflow-hidden rounded-lg min-h-[400px] flex items-center justify-center bg-gray-800/20">
+                <div className="relative overflow-hidden rounded-lg min-h-full flex items-center justify-center bg-gray-800/20">
                   <AnimatePresence mode="wait">
                     {!isImageLoaded && (
                       <motion.div
