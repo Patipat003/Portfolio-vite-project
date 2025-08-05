@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import TypingText from "./TypingText";
+import { Loader2 } from "lucide-react";
 
 const Card = ({
   totalSlide,
@@ -16,6 +17,7 @@ const Card = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
 
   const images = Array.from({ length: totalSlide }, (_, i) => ({
     id: `slide${i + 1}`,
@@ -128,6 +130,12 @@ const Card = ({
               <div className="relative">
                 <div className="relative overflow-hidden rounded-lg">
                   <AnimatePresence mode="wait">
+                    {!loaded && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-800/30 rounded-lg">
+                        <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
+                      </div>
+                    )}
+
                     <motion.img
                       key={currentImageIndex}
                       src={images[currentImageIndex].src}
@@ -138,6 +146,8 @@ const Card = ({
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       loading="lazy"
+                      decoding="async"
+                      onLoad={() => setLoaded(true)}
                     />
                   </AnimatePresence>
                 </div>
