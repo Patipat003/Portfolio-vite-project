@@ -25,15 +25,12 @@ const Card = ({
     src: `${picSrc}${i + 1}.png`,
   }));
 
-  // Preload first image and next/prev images when modal opens
   useEffect(() => {
     if (isModalOpen) {
       const imagesToPreload = [];
 
-      // Always preload current image
       imagesToPreload.push(currentImageIndex);
 
-      // Preload next and previous images
       if (images.length > 1) {
         const nextIndex =
           currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
@@ -55,7 +52,6 @@ const Card = ({
     }
   }, [isModalOpen, currentImageIndex, images, preloadedImages]);
 
-  // Preload adjacent images when changing slides
   useEffect(() => {
     if (isModalOpen && images.length > 1) {
       const nextIndex =
