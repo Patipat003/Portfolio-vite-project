@@ -1,6 +1,6 @@
 import Button from "../ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import TypingText from "./TypingText";
@@ -17,12 +17,64 @@ const Card = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [loaded, setLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(new Set());
+  const [preloadedImages, setPreloadedImages] = useState(new Set());
 
   const images = Array.from({ length: totalSlide }, (_, i) => ({
     id: `slide${i + 1}`,
     src: `${picSrc}${i + 1}.png`,
   }));
+
+  // Preload first image and next/prev images when modal opens
+  useEffect(() => {
+    if (isModalOpen) {
+      const imagesToPreload = [];
+
+      // Always preload current image
+      imagesToPreload.push(currentImageIndex);
+
+      // Preload next and previous images
+      if (images.length > 1) {
+        const nextIndex =
+          currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+        const prevIndex =
+          currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+        imagesToPreload.push(nextIndex, prevIndex);
+      }
+
+      imagesToPreload.forEach((index) => {
+        if (!preloadedImages.has(index)) {
+          const img = new Image();
+          img.onload = () => {
+            setLoadedImages((prev) => new Set([...prev, index]));
+          };
+          img.src = images[index].src;
+          setPreloadedImages((prev) => new Set([...prev, index]));
+        }
+      });
+    }
+  }, [isModalOpen, currentImageIndex, images, preloadedImages]);
+
+  // Preload adjacent images when changing slides
+  useEffect(() => {
+    if (isModalOpen && images.length > 1) {
+      const nextIndex =
+        currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+      const prevIndex =
+        currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+
+      [nextIndex, prevIndex].forEach((index) => {
+        if (!preloadedImages.has(index)) {
+          const img = new Image();
+          img.onload = () => {
+            setLoadedImages((prev) => new Set([...prev, index]));
+          };
+          img.src = images[index].src;
+          setPreloadedImages((prev) => new Set([...prev, index]));
+        }
+      });
+    }
+  }, [currentImageIndex, isModalOpen, images, preloadedImages]);
 
   const openModal = (index = 0) => {
     setCurrentImageIndex(index);
@@ -44,6 +96,8 @@ const Card = ({
     setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  const isImageLoaded = loadedImages.has(currentImageIndex);
+
   return (
     <>
       <motion.div
@@ -55,10 +109,11 @@ const Card = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex justify-center">
             <img
-              src={images[currentImageIndex].src}
-              alt={`${title} - Image ${currentImageIndex + 1}`}
+              src={images[0].src}
+              alt={`${title} - Preview`}
               className="object-cover rounded-lg cursor-pointer"
               onClick={() => openModal(0)}
+              loading="lazy"
             />
           </div>
 
@@ -128,12 +183,22 @@ const Card = ({
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
-                <div className="relative overflow-hidden rounded-lg">
+                <div className="relative overflow-hidden rounded-lg min-h-[400px] flex items-center justify-center bg-gray-800/20">
                   <AnimatePresence mode="wait">
-                    {!loaded && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gray-800/30 rounded-lg">
-                        <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
-                      </div>
+                    {!isImageLoaded && (
+                      <motion.div
+                        className="absolute inset-0 flex items-center justify-center bg-gray-800/30 rounded-lg z-10"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        <div className="flex flex-col items-center gap-3">
+                          <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
+                          <span className="text-white/60 text-sm">
+                            Loading image...
+                          </span>
+                        </div>
+                      </motion.div>
                     )}
 
                     <motion.img
@@ -142,12 +207,19 @@ const Card = ({
                       alt={`${title} - Image ${currentImageIndex + 1}`}
                       className="w-full max-h-full object-contain rounded-lg"
                       initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      animate={{ opacity: isImageLoaded ? 1 : 0, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      loading="lazy"
-                      decoding="async"
-                      onLoad={() => setLoaded(true)}
+                      loading="eager"
+                      decoding="sync"
+                      onLoad={() => {
+                        setLoadedImages(
+                          (prev) => new Set([...prev, currentImageIndex])
+                        );
+                      }}
+                      style={{
+                        visibility: isImageLoaded ? "visible" : "hidden",
+                      }}
                     />
                   </AnimatePresence>
                 </div>
@@ -156,13 +228,15 @@ const Card = ({
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-10"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
+                      disabled={!isImageLoaded}
                     >
                       <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-10"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
+                      disabled={!isImageLoaded}
                     >
                       <ChevronRight size={24} />
                     </button>
@@ -170,7 +244,7 @@ const Card = ({
                 )}
 
                 <motion.div
-                  className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm"
+                  className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm z-20"
                   key={currentImageIndex}
                   initial={{ scale: 0.8, opacity: 0.5 }}
                   animate={{ scale: 1, opacity: 1 }}
