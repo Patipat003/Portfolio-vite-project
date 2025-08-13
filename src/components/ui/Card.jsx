@@ -1,9 +1,8 @@
 import Button from "../ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import TypingText from "./TypingText";
 import { Loader2 } from "lucide-react";
 
 const Card = ({
@@ -17,66 +16,37 @@ const Card = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [loadedImages, setLoadedImages] = useState(new Set());
-  const [preloadedImages, setPreloadedImages] = useState(new Set());
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
 
-  const images = Array.from({ length: totalSlide }, (_, i) => ({
-    id: `slide${i + 1}`,
-    src: `${picSrc}${i + 1}.png`,
-  }));
+  const preloadAllImages = async () => {
+    const promises = images.map(
+      (img) =>
+        new Promise((resolve) => {
+          const image = new Image();
+          image.src = img.src;
+          image.onload = resolve;
+        })
+    );
+    await Promise.all(promises);
+    setAllImagesLoaded(true);
+  };
 
-  useEffect(() => {
-    if (isModalOpen) {
-      const imagesToPreload = [];
-
-      imagesToPreload.push(currentImageIndex);
-
-      if (images.length > 1) {
-        const nextIndex =
-          currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
-        const prevIndex =
-          currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
-        imagesToPreload.push(nextIndex, prevIndex);
-      }
-
-      imagesToPreload.forEach((index) => {
-        if (!preloadedImages.has(index)) {
-          const img = new Image();
-          img.onload = () => {
-            setLoadedImages((prev) => new Set([...prev, index]));
-          };
-          img.src = images[index].src;
-          setPreloadedImages((prev) => new Set([...prev, index]));
-        }
-      });
-    }
-  }, [isModalOpen, currentImageIndex, images, preloadedImages]);
-
-  useEffect(() => {
-    if (isModalOpen && images.length > 1) {
-      const nextIndex =
-        currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
-      const prevIndex =
-        currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
-
-      [nextIndex, prevIndex].forEach((index) => {
-        if (!preloadedImages.has(index)) {
-          const img = new Image();
-          img.onload = () => {
-            setLoadedImages((prev) => new Set([...prev, index]));
-          };
-          img.src = images[index].src;
-          setPreloadedImages((prev) => new Set([...prev, index]));
-        }
-      });
-    }
-  }, [currentImageIndex, isModalOpen, images, preloadedImages]);
-
-  const openModal = (index = 0) => {
+  const openModal = async (index = 0) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
+    setAllImagesLoaded(false);
     document.body.style.overflow = "hidden";
+    await preloadAllImages();
   };
+
+  const images = useMemo(
+    () =>
+      Array.from({ length: totalSlide }, (_, i) => ({
+        id: `slide${i + 1}`,
+        src: `${picSrc}${i + 1}.png`,
+      })),
+    [totalSlide, picSrc]
+  );
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -92,8 +62,6 @@ const Card = ({
     setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  const isImageLoaded = loadedImages.has(currentImageIndex);
-
   return (
     <>
       <motion.div
@@ -105,7 +73,7 @@ const Card = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex justify-center">
             <img
-              src={images[0].src}
+              src={images[0]?.src}
               alt={`${title} - Preview`}
               className="object-cover rounded-lg cursor-pointer"
               onClick={() => openModal(0)}
@@ -121,12 +89,12 @@ const Card = ({
             </p>
             <span className="flex flex-wrap text-xs text-success gap-2 mt-2">
               {tech.map((item, index) => (
-                <a
+                <span
                   key={index}
                   className="bg-cyan-500/15 px-2.5 py-1 rounded-full border border-cyan-500/30 hover:bg-cyan-500/25 hover:border-cyan-400/50 transition-all duration-200"
                 >
                   {item}
-                </a>
+                </span>
               ))}
             </span>
           </div>
@@ -181,8 +149,9 @@ const Card = ({
               <div className="relative">
                 <div className="relative overflow-hidden rounded-lg min-h-full flex items-center justify-center bg-gray-800/20">
                   <AnimatePresence mode="wait">
-                    {!isImageLoaded && (
+                    {!allImagesLoaded ? (
                       <motion.div
+                        key="loader"
                         className="absolute inset-0 flex items-center justify-center bg-gray-800/30 rounded-lg z-10"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -191,32 +160,24 @@ const Card = ({
                         <div className="flex flex-col items-center gap-3">
                           <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
                           <span className="text-white/60 text-sm">
-                            Loading image...
+                            Loading images...
                           </span>
                         </div>
                       </motion.div>
+                    ) : (
+                      <motion.img
+                        key={currentImageIndex}
+                        src={images[currentImageIndex]?.src}
+                        alt={`${title} - Image ${currentImageIndex + 1}`}
+                        className="w-full max-h-full object-contain rounded-lg"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        loading="eager"
+                        decoding="sync"
+                      />
                     )}
-
-                    <motion.img
-                      key={currentImageIndex}
-                      src={images[currentImageIndex].src}
-                      alt={`${title} - Image ${currentImageIndex + 1}`}
-                      className="w-full max-h-full object-contain rounded-lg"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: isImageLoaded ? 1 : 0, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      loading="eager"
-                      decoding="sync"
-                      onLoad={() => {
-                        setLoadedImages(
-                          (prev) => new Set([...prev, currentImageIndex])
-                        );
-                      }}
-                      style={{
-                        visibility: isImageLoaded ? "visible" : "hidden",
-                      }}
-                    />
                   </AnimatePresence>
                 </div>
 
@@ -225,14 +186,14 @@ const Card = ({
                     <button
                       onClick={prevImage}
                       className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
-                      disabled={!isImageLoaded}
+                      aria-label="Previous image"
                     >
                       <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={nextImage}
                       className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
-                      disabled={!isImageLoaded}
+                      aria-label="Next image"
                     >
                       <ChevronRight size={24} />
                     </button>
@@ -268,7 +229,7 @@ const Card = ({
                 </div>
 
                 <div className="text-white/90 text-center leading-relaxed font-medium">
-                  <TypingText text={description} speed={10} showCursor={true} />
+                  {description}
                 </div>
               </div>
             </motion.div>

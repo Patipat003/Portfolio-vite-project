@@ -55,13 +55,16 @@ const Portfolio = () => {
                 I'm a recent Information Technology graduate from Mahasarakham
                 University with 4 months of internship experience in full-stack
                 development. I enjoy building clean, user-friendly interfaces
-                and continuously seek to learn and grow. I'm especially
-                interested in working as a <strong>Frontend Developer</strong>,
-                but I'm also capable of handling
+                and continuously improving my skills. While I'm particularly
+                passionate about
+                <strong> Frontend Development</strong>, I am also comfortable
+                handling
                 <strong> Fullstack</strong> or <strong>Backend</strong> tasks
-                when needed. I'm also open to opportunities in
-                <strong> System Analyst</strong> roles.
+                when needed. I'm open to opportunities in{" "}
+                <strong>System Analysis</strong> roles and eager to contribute
+                to real-world projects while growing as a developer.
               </p>
+
               <ul className="list-disc list-inside text-sm text-success">
                 <li>💻 Front-end Developer | Full-stack Enthusiast</li>
                 <li>📌 Passionate about UI/UX, Performance, and Scalability</li>
