@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 const Card = ({
@@ -24,6 +24,14 @@ const Card = ({
       })),
     [totalSlide, picSrc]
   );
+
+  // ✅ Preload images on mount
+  useEffect(() => {
+    images.forEach((img) => {
+      const preloadImg = new Image();
+      preloadImg.src = img.src;
+    });
+  }, [images]);
 
   const openModal = (index = 0) => {
     setCurrentImageIndex(index);
@@ -114,7 +122,7 @@ const Card = ({
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/90 flex flex-col items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black/90 flex justify-center items-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -122,52 +130,59 @@ const Card = ({
             onClick={closeModal}
           >
             <motion.div
-              className="rounded-3xl max-w-4xl p-12 w-full shadow-2xl"
+              className="relative w-full max-w-3xl flex justify-center items-center"
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
-                <div className="relative overflow-hidden rounded-lg min-h-full flex items-center justify-center bg-gray-800/20">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={currentImageIndex}
-                      src={images[currentImageIndex]?.src}
-                      alt={`${title} - Image ${currentImageIndex + 1}`}
-                      className="w-full max-h-full object-contain rounded-lg"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      loading="eager"
-                      decoding="sync"
-                    />
-                  </AnimatePresence>
-                </div>
+              <div className="relative flex justify-center items-center p-6">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={images[currentImageIndex]?.src}
+                    alt={`${title} - Image ${currentImageIndex + 1}`}
+                    className="w-auto max-w-full h-auto max-h-[90vh] object-contain rounded-lg"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    loading="eager"
+                    decoding="sync"
+                  />
+                </AnimatePresence>
 
                 {images.length > 1 && (
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
-                      aria-label="Previous image"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20"
                     >
                       <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors cursor-pointer z-20"
-                      aria-label="Next image"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20"
                     >
                       <ChevronRight size={24} />
                     </button>
                   </>
                 )}
-
                 <motion.div
-                  className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm z-20"
+                  className="fixed top-2 left-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20 cursor-pointer"
+                  initial={{ scale: 0.8, opacity: 0.5 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={closeModal}
+                >
+                  <span className="flex items-center gap-2">
+                    <ArrowLeft />
+                    Back
+                  </span>
+                </motion.div>
+                <motion.div
+                  className="fixed top-2 right-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20"
                   key={currentImageIndex}
                   initial={{ scale: 0.8, opacity: 0.5 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -176,28 +191,18 @@ const Card = ({
                   {currentImageIndex + 1} / {images.length}
                 </motion.div>
               </div>
-            </motion.div>
 
-            <motion.div
-              className="w-full p-4 mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <div className="relative">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent flex-1"></div>
-                  <div className="px-4 text-cyan-300 text-sm font-semibold tracking-wider uppercase">
-                    Description
-                  </div>
-                  <div className="h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent flex-1"></div>
-                </div>
-
-                <div className="text-white/90 text-center leading-relaxed font-medium">
+              <motion.div
+                className="fixed bottom-0 left-0 right-0 flex justify-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
+                <div className="w-full bg-black/40 p-4 sm:p-6 text-white/90 text-center leading-relaxed font-medium text-xs md:text-sm">
                   {description}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
