@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Loader2 } from "lucide-react";
 
 const Card = ({
   totalSlide,
@@ -16,28 +15,6 @@ const Card = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
-
-  const preloadAllImages = async () => {
-    const promises = images.map(
-      (img) =>
-        new Promise((resolve) => {
-          const image = new Image();
-          image.src = img.src;
-          image.onload = resolve;
-        })
-    );
-    await Promise.all(promises);
-    setAllImagesLoaded(true);
-  };
-
-  const openModal = async (index = 0) => {
-    setCurrentImageIndex(index);
-    setIsModalOpen(true);
-    setAllImagesLoaded(false);
-    document.body.style.overflow = "hidden";
-    await preloadAllImages();
-  };
 
   const images = useMemo(
     () =>
@@ -47,6 +24,12 @@ const Card = ({
       })),
     [totalSlide, picSrc]
   );
+
+  const openModal = (index = 0) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -149,35 +132,18 @@ const Card = ({
               <div className="relative">
                 <div className="relative overflow-hidden rounded-lg min-h-full flex items-center justify-center bg-gray-800/20">
                   <AnimatePresence mode="wait">
-                    {!allImagesLoaded ? (
-                      <motion.div
-                        key="loader"
-                        className="absolute inset-0 flex items-center justify-center bg-gray-800/30 rounded-lg z-10"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      >
-                        <div className="flex flex-col items-center gap-3">
-                          <Loader2 className="w-8 h-8 text-white/70 animate-spin" />
-                          <span className="text-white/60 text-sm">
-                            Loading images...
-                          </span>
-                        </div>
-                      </motion.div>
-                    ) : (
-                      <motion.img
-                        key={currentImageIndex}
-                        src={images[currentImageIndex]?.src}
-                        alt={`${title} - Image ${currentImageIndex + 1}`}
-                        className="w-full max-h-full object-contain rounded-lg"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        loading="eager"
-                        decoding="sync"
-                      />
-                    )}
+                    <motion.img
+                      key={currentImageIndex}
+                      src={images[currentImageIndex]?.src}
+                      alt={`${title} - Image ${currentImageIndex + 1}`}
+                      className="w-full max-h-full object-contain rounded-lg"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      loading="eager"
+                      decoding="sync"
+                    />
                   </AnimatePresence>
                 </div>
 

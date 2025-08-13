@@ -77,7 +77,7 @@ export const ProjectsData = [
   },
   {
     id: "stock-project",
-    totalSlide: 8,
+    totalSlide: 4,
     picSrc: "./projects/stock-pic/",
     title: "Magnificent 7 Stocks Tracker",
     positions: "Personal Project / Full Stack Web Development",
