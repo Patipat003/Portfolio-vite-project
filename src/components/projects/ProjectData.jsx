@@ -69,7 +69,8 @@ export const ProjectsData = [
         link: "https://pos-demo-pi.vercel.app/",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt />
+            Live Demo
           </span>
         ),
       },
@@ -110,7 +111,7 @@ export const ProjectsData = [
         link: "https://www.mag7tracker.xyz/",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt /> Live Demo
           </span>
         ),
       },
@@ -146,7 +147,7 @@ export const ProjectsData = [
         link: "https://synthspells.vercel.app",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt /> Live Demo
           </span>
         ),
       },
@@ -174,7 +175,7 @@ export const ProjectsData = [
         link: "https://react-todo-list-khaki-rho.vercel.app/",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt /> Live Demo
           </span>
         ),
       },
@@ -214,7 +215,7 @@ export const ProjectsData = [
         link: "https://chat-app-sepia-iota-83.vercel.app",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt /> Live Demo
           </span>
         ),
       },
@@ -241,7 +242,7 @@ export const ProjectsData = [
         link: "https://news-blogs-projectz.vercel.app",
         label: (
           <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Demo
+            <FaExternalLinkAlt /> Live Demo
           </span>
         ),
       },

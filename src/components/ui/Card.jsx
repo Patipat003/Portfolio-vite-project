@@ -25,7 +25,6 @@ const Card = ({
     [totalSlide, picSrc]
   );
 
-  // ✅ Preload images on mount
   useEffect(() => {
     images.forEach((img) => {
       const preloadImg = new Image();
@@ -62,11 +61,11 @@ const Card = ({
         transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="flex justify-center">
+          <div className="relative overflow-hidden flex-shrink-0 cursor-pointer group">
             <img
               src={images[0]?.src}
               alt={`${title} - Preview`}
-              className="object-cover rounded-lg cursor-pointer"
+              className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
               onClick={() => openModal(0)}
               loading="lazy"
             />
@@ -127,14 +126,15 @@ const Card = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             tabIndex={0}
+            transition={{ duration: 0.5 }}
             onClick={closeModal}
           >
             <motion.div
-              className="relative w-full max-w-3xl flex justify-center items-center"
+              className="relative sm:w-5/6 max-w-4xl flex justify-center items-center"
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative flex justify-center items-center p-6">
@@ -157,52 +157,51 @@ const Card = ({
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20"
+                      className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
                     >
                       <ChevronLeft size={24} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20"
+                      className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
                     >
                       <ChevronRight size={24} />
                     </button>
                   </>
                 )}
-                <motion.div
-                  className="fixed top-2 left-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20 cursor-pointer"
-                  initial={{ scale: 0.8, opacity: 0.5 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={closeModal}
-                >
-                  <span className="flex items-center gap-2">
-                    <ArrowLeft />
-                    Back
-                  </span>
-                </motion.div>
-                <motion.div
-                  className="fixed top-2 right-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20"
-                  key={currentImageIndex}
-                  initial={{ scale: 0.8, opacity: 0.5 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {currentImageIndex + 1} / {images.length}
-                </motion.div>
               </div>
-
-              <motion.div
-                className="fixed bottom-0 left-0 right-0 flex justify-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-              >
-                <div className="w-full bg-black/40 p-4 sm:p-6 text-white/90 text-center leading-relaxed font-medium text-xs md:text-sm">
-                  {description}
-                </div>
-              </motion.div>
+            </motion.div>
+            <motion.div
+              className="fixed top-2 left-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20 cursor-pointer"
+              initial={{ scale: 0.8, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.2 }}
+              onClick={closeModal}
+            >
+              <span className="flex items-center gap-2">
+                <ArrowLeft />
+                Back
+              </span>
+            </motion.div>
+            <motion.div
+              className="fixed top-2 right-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20"
+              key={currentImageIndex}
+              initial={{ scale: 0.8, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            >
+              {currentImageIndex + 1} / {images.length}
+            </motion.div>
+            <motion.div
+              className="fixed bottom-0 left-0 right-0 flex justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <div className="w-full bg-black/40 p-4 sm:p-6 text-white/90 text-center leading-relaxed font-medium text-xs lg:text-sm">
+                {description}
+              </div>
             </motion.div>
           </motion.div>
         )}
