@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="border-b border-success/20 sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
+    <nav className="border-b border-white/10 sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
       <div className="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
