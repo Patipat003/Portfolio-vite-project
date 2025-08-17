@@ -148,31 +148,30 @@ const Card = ({
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    loading="eager"
-                    decoding="sync"
                   />
                 </AnimatePresence>
-
-                {images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
-                    >
-                      <ChevronLeft size={24} />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
-                    >
-                      <ChevronRight size={24} />
-                    </button>
-                  </>
-                )}
               </div>
+
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full z-20 cursor-pointer"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
             </motion.div>
+
             <motion.div
-              className="fixed top-2 left-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20 cursor-pointer"
+              className="absolute top-2 left-0 py-1 px-4 text-white text-sm z-20 cursor-pointer"
               initial={{ scale: 0.8, opacity: 0.5 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.2 }}
@@ -183,8 +182,9 @@ const Card = ({
                 Back
               </span>
             </motion.div>
+
             <motion.div
-              className="fixed top-2 right-0 py-1 px-4 text-white bg-black/70 rounded-full text-sm z-20"
+              className="absolute top-2 right-0 py-1 px-4 text-white text-sm z-20"
               key={currentImageIndex}
               initial={{ scale: 0.8, opacity: 0.5 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -192,8 +192,9 @@ const Card = ({
             >
               {currentImageIndex + 1} / {images.length}
             </motion.div>
+
             <motion.div
-              className="fixed bottom-0 left-0 right-0 flex justify-center"
+              className="absolute bottom-0 left-0 right-0 flex justify-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}

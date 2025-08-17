@@ -1,6 +1,10 @@
+import { useState } from "react";
+
 const Navbar = () => {
+  const [active, setActive] = useState("home");
+
   return (
-    <nav className="border-b border-white/10 sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
+    <nav className="border-b border-white/5 sticky top-0 z-50 backdrop-blur bg-base-200/80 shadow-md">
       <div className="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -34,44 +38,64 @@ const Navbar = () => {
               </label>
             </div>
             <nav className="hidden flex-none border-b-2 border-success text-neutral-content lg:block">
-              <ul className="menu menu-horizontal px-1 text-success justify-end w-full">
+              <ul className="flex items-center gap-5 p-3 justify-end w-full">
                 <li>
                   <a
                     href="#home"
-                    className="text-lg md:text-xl font-semibold transition-all duration-300"
+                    onClick={() => {
+                      setActive("home");
+                    }}
+                    className={`text-lg md:text-xl font-semibold transition-all duration-300 ${
+                      active == "home" ? "text-success" : "text-gray-400"
+                    } `}
                   >
                     Home
                   </a>
                 </li>
-                <span className="mt-2 mx-2 text-lg text-success/50 hidden md:inline">
+                <span className="mt-1 text-lg text-success/50 hidden md:inline">
                   /
                 </span>
                 <li>
                   <a
                     href="#skills"
-                    className="text-lg md:text-xl font-semibold transition-all duration-300"
+                    onClick={() => {
+                      setActive("skills");
+                    }}
+                    className={`text-lg md:text-xl font-semibold transition-all duration-300 ${
+                      active == "skills" ? "text-success" : "text-gray-400"
+                    } `}
                   >
                     Skills
                   </a>
                 </li>
-                <span className="mt-2 mx-2 text-lg text-success/50 hidden md:inline">
+                <span className="mt-1 text-lg text-success/50 hidden md:inline">
                   /
                 </span>
                 <li>
                   <a
                     href="#projects"
-                    className="text-lg md:text-xl font-semibold transition-all duration-300"
+                    onClick={() => {
+                      setActive("projects");
+                    }}
+                    className={`text-lg md:text-xl font-semibold transition-all duration-300 ${
+                      active == "projects" ? "text-success" : "text-gray-400"
+                    } `}
                   >
                     Projects
                   </a>
                 </li>
-                <span className="mt-2 mx-2 text-lg text-success/50 hidden md:inline">
+                <span className="mt-1 text-lg text-success/50 hidden md:inline">
                   /
                 </span>
                 <li>
                   <a
                     href="#contact"
-                    className="text-lg md:text-xl font-semibold transition-all duration-300"
+                    onClick={() => {
+                      setActive("contact");
+                    }}
+                    className={`text-lg md:text-xl font-semibold transition-all duration-300 ${
+                      active == "contact" ? "text-success" : "text-gray-400"
+                    } `}
                   >
                     Contact
                   </a>
