@@ -96,7 +96,7 @@ const Contact = () => {
         <div className="space-y-2">
           <div className="border-t border-base-content/10 pt-4">
             <p className="text-sm text-neutral-content/70 italic mb-4">
-              “Vibe Coding Enjoyer :smileyface:”
+              “I don’t know everything. I only know what I know. :smileyface:”
             </p>
             <Button link="../Resume.pdf" text="📄 Download Resume" />
           </div>
