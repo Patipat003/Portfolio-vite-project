@@ -12,6 +12,9 @@ const Navbar = () => {
           <div className="navbar h-20 flex items-center justify-end px-4 md:px-8">
             <a
               href="#home"
+              onClick={() => {
+                setActive("home");
+              }}
               className="text-2xl md:text-4xl mx-2 flex-1 px-2 font-bold text-success"
             >
               PatipatS.
