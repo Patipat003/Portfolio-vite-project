@@ -28,8 +28,8 @@ const Contact = () => {
             out — I'd love to chat.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-3">
-          <div className="space-y-6 text-sm md:text-base">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-base-200 rounded-lg">
+          <div className="flex flex-col p-4 justify-center space-y-6 text-sm md:text-base">
             <div className="flex items-center space-x-4">
               <div className="bg-neutral/50 h-10 w-10 rounded-full flex items-center justify-center">
                 <MdEmail className="text-2xl" />
@@ -42,7 +42,9 @@ const Contact = () => {
                   className="flex items-center text-neutral-content/80 font-medium cursor-pointer hover:text-primary transition-colors"
                   onClick={() => copyToClipboard("patipat.singhasri@gmail.com")}
                 >
-                  <span>patipat.singhasri@gmail.com</span>
+                  <span className="truncate w-39 sm:w-full">
+                    patipat.singhasri@gmail.com
+                  </span>
                 </div>
               </div>
             </div>
