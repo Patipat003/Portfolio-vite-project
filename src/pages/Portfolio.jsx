@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import Navbar from "../components/layout/Navbar";
 import Skills from "../components/layout/Skills";
 import Projects from "../components/layout/Projects";
@@ -82,6 +82,13 @@ const Portfolio = () => {
                 </a>
                 <a href="mailto:patipat.singhasri@gmail.com">
                   <FaEnvelope className="text-xl hover:text-primary transition" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/patipat-singhasri-756532358"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedin className="text-xl hover:text-primary transition" />
                 </a>
               </div>
 
