@@ -1,4 +1,5 @@
-import { FaGithub, FaGoogleDrive, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaGoogleDrive } from "react-icons/fa";
+import { Demo } from "../ui/Demo";
 
 export const ProjectsData = [
   {
@@ -65,15 +66,7 @@ export const ProjectsData = [
         link: "/API Specification (POS).pdf",
         label: "📄 API Specification (PDF)",
       },
-      {
-        link: "https://pos-demo-pi.vercel.app/",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt />
-            Live Demo
-          </span>
-        ),
-      },
+      Demo("https://pos-demo-pi.vercel.app/"),
     ],
   },
   {
@@ -107,14 +100,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      {
-        link: "https://www.mag7tracker.xyz/",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Live Demo
-          </span>
-        ),
-      },
+      Demo("https://www.mag7tracker.xyz/"),
     ],
   },
   {
@@ -143,14 +129,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      {
-        link: "https://synthspells.vercel.app",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Live Demo
-          </span>
-        ),
-      },
+      Demo("https://synthspells.vercel.app/"),
     ],
   },
   {
@@ -171,14 +150,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      {
-        link: "https://react-todo-list-khaki-rho.vercel.app/",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Live Demo
-          </span>
-        ),
-      },
+      Demo("https://react-todo-list-khaki-rho.vercel.app/"),
     ],
   },
   {
@@ -211,14 +183,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      {
-        link: "https://chat-app-sepia-iota-83.vercel.app",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Live Demo
-          </span>
-        ),
-      },
+      Demo("https://chat-app-sepia-iota-83.vercel.app/"),
     ],
   },
   {
@@ -238,14 +203,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      {
-        link: "https://news-blogs-projectz.vercel.app",
-        label: (
-          <span className="flex items-center gap-2">
-            <FaExternalLinkAlt /> Live Demo
-          </span>
-        ),
-      },
+      Demo("https://news-blogs-projectz.vercel.app/"),
     ],
   },
 ];
