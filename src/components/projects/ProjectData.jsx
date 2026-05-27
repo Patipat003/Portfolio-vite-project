@@ -100,7 +100,7 @@ export const ProjectsData = [
           </span>
         ),
       },
-      Demo("https://www.mag7tracker.xyz/"),
+      Demo("https://mag7-stock-tracker-dgqz.vercel.app/"),
     ],
   },
   {
